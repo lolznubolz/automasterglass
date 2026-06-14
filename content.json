@@ -7,7 +7,9 @@
     "stop": 180000,
     "mobile": 50000
   },
-  "gallery": [],
+  "gallery": [
+    { "before": "before-amg1.jpg", "after": "after-amg1.jpg" }
+  ],
   "texts": {
     "ru": {
       "hero_badge": "Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",
