@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoMasterGlass — Ремонт сколов и трещин лобового стекла с гарантией</title>
+<meta name="description" content="Профессиональный ремонт сколов и трещин лобового стекла. Выезд мастера, прозрачные цены, гарантия до 6 месяцев, полимеры из США. Онлайн-запись за 30 секунд.">
+<meta name="keywords" content="ремонт лобового стекла, ремонт скола, ремонт трещины, автостекло, выезд мастера, рекалибровка ADAS">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://automasterglass.uz/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AutoMasterGlass — Ремонт автостёкол с гарантией">
+<meta property="og:description" content="Ремонт сколов и трещин за 30–60 минут. Выезд, гарантия, полимеры из США.">
+<meta property="og:url" content="https://automasterglass.uz/">
+<meta property="og:image" content="https://automasterglass.uz/og.jpg">
+
+<!-- Schema.org structured data (SEO 2026) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "AutoMasterGlass",
+  "description": "Ремонт сколов и трещин лобового стекла с гарантией",
+  "telephone": "+998917950063",
+  "priceRange": "$$",
+  "openingHours": "Mo-Su 10:00-22:00",
+  "image": "https://automasterglass.uz/og.jpg",
+  "url": "https://automasterglass.uz/",
+  "areaServed": "Tashkent",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "327"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#000000; --bg2:#0a0e16; --card:rgba(255,255,255,.045); --card-brd:rgba(255,255,255,.10);
+  --txt:#ffffff; --muted:#afb4c0; --accent:#1e82e5; --accent2:#1731c6; --accent-grad:linear-gradient(120deg,#1e82e5,#1731c6);
+  --ok:#34d399; --warn:#fbbf24; --coral:#ff8562; --shadow:0 20px 60px -20px rgba(0,0,0,.7);
+  --maxw:1180px;
+}
+[data-theme="light"]{
+  --bg:#f4f7fc; --bg2:#ffffff; --card:rgba(20,40,80,.03); --card-brd:rgba(20,40,80,.10);
+  --txt:#0d1b33; --muted:#5a6b86; --shadow:0 20px 50px -24px rgba(20,40,80,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,.h{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.accent{background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ambient background */
+.glow{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.glow span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.glow span:nth-child(1){width:480px;height:480px;background:#1e82e544;top:-120px;left:-80px}
+.glow span:nth-child(2){width:520px;height:520px;background:#1731c655;top:30%;right:-140px}
+.glow span:nth-child(3){width:420px;height:420px;background:#285cd333;bottom:-120px;left:30%}
+
+/* header */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--card-brd)}
+.nav{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:19px}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--accent-grad);display:grid;place-items:center;font-size:18px;box-shadow:0 6px 18px -6px var(--accent)}
+.nav nav{display:flex;gap:24px;margin-left:auto}
+.nav nav a{color:var(--muted);font-weight:600;font-size:15px;transition:color .2s;position:relative}
+.nav nav a:hover{color:var(--txt)}
+.tools{display:flex;align-items:center;gap:10px;margin-left:18px}
+.chip{border:1px solid var(--card-brd);background:var(--card);color:var(--txt);border-radius:10px;padding:8px 11px;font-weight:700;font-size:13px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.lang-wrap{position:relative}
+.lang-menu{position:absolute;right:0;top:46px;background:var(--bg2);border:1px solid var(--card-brd);border-radius:12px;padding:6px;display:none;box-shadow:var(--shadow);min-width:140px}
+.lang-menu.open{display:block}
+.lang-menu button{display:block;width:100%;text-align:left;background:none;border:none;color:var(--txt);padding:9px 12px;border-radius:8px;cursor:pointer;font:inherit;font-weight:600}
+.lang-menu button:hover{background:var(--card)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font-family:'Manrope';font-weight:700;font-size:15px;border-radius:12px;padding:13px 22px;transition:transform .15s,box-shadow .2s;white-space:nowrap}
+.btn-primary{background:var(--accent-grad);color:#04121f;box-shadow:0 12px 30px -10px var(--accent)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px -10px var(--accent)}
+.btn-ghost{background:var(--card);border:1px solid var(--card-brd);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
+
+/* hero */
+.hero{padding:74px 0 60px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--card-brd);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:22px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px #34d39933;animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px #34d39900}}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:800;margin-bottom:18px}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:520px;margin-bottom:28px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-trust{display:flex;gap:26px;flex-wrap:wrap}
+.hero-trust div{font-size:13px;color:var(--muted)}
+.hero-trust b{display:block;font-family:'Sora';font-size:24px;color:var(--txt);font-weight:800}
+.hero-visual{position:relative}
+.hero-card{background:var(--card);border:1px solid var(--card-brd);border-radius:24px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.hero-card .glass-anim{height:180px;border-radius:16px;background:linear-gradient(135deg,#1e82e5,#1731c6);position:relative;overflow:hidden;margin-bottom:18px}
+.wsvg{position:absolute;inset:0;width:100%;height:100%}
+.wsvg .reflect{stroke:#ffffff;opacity:.12}
+.wsvg .crack-line{fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 4px rgba(255,255,255,.9))}
+.wsvg .crack-main{stroke-dasharray:250;stroke-dashoffset:250;animation:drawMain 7s ease-in-out infinite}
+.wsvg .crack-b1{stroke-dasharray:55;stroke-dashoffset:55;animation:drawBranch1 7s ease-in-out infinite}
+.wsvg .crack-b2{stroke-dasharray:60;stroke-dashoffset:60;animation:drawBranch2 7s ease-in-out infinite}
+.wsvg .chip{transform-box:fill-box;transform-origin:170px 90px;animation:chipPop 7s ease-in-out infinite}
+.wsvg .chip line{stroke:#fff;stroke-width:2;stroke-linecap:round;filter:drop-shadow(0 0 5px #fff)}
+.wsvg .chip-core{fill:#fff;stroke:none;filter:drop-shadow(0 0 6px #fff)}
+.wsvg .scan{opacity:0;animation:repairScan 7s ease-in-out infinite;mix-blend-mode:screen}
+@keyframes chipPop{0%{opacity:0;transform:scale(0)}7%{opacity:1;transform:scale(1.25)}12%{transform:scale(1)}55%{opacity:1;transform:scale(1)}80%{opacity:1}90%{opacity:0;transform:scale(.5)}100%{opacity:0}}
+@keyframes drawMain{0%,15%{stroke-dashoffset:250;opacity:1}50%,74%{stroke-dashoffset:0;opacity:1}88%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes drawBranch1{0%,25%{stroke-dashoffset:55;opacity:1}58%,74%{stroke-dashoffset:0;opacity:1}88%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes drawBranch2{0%,32%{stroke-dashoffset:60;opacity:1}62%,74%{stroke-dashoffset:0;opacity:1}88%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes repairScan{0%,70%{transform:translateX(-60px);opacity:0}73%{opacity:.9}85%{opacity:.9}88%,100%{transform:translateX(380px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.wsvg *{animation:none!important}.wsvg .crack-line{stroke-dashoffset:0!important}.wsvg .scan{display:none}}
+.hero-card .row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px dashed var(--card-brd);font-size:14px}
+.hero-card .row:last-child{border:none}
+.hero-card .row b{font-family:'Sora'}
+
+/* sections */
+section.block{padding:74px 0}
+.eyebrow{color:var(--accent);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.sec-title{font-size:clamp(26px,3.6vw,40px);font-weight:800;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:600px;font-size:16px}
+.center{text-align:center;margin:0 auto}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
+.card{background:var(--card);border:1px solid var(--card-brd);border-radius:20px;padding:28px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.card .ico{width:54px;height:54px;border-radius:14px;background:var(--accent-grad);display:grid;place-items:center;font-size:26px;margin-bottom:18px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card .price{font-family:'Sora';font-weight:800;font-size:22px;color:var(--accent);margin:14px 0 10px}
+.card p{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.card .btn{width:100%}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px}
+.feat-item{display:flex;gap:14px;background:var(--card);border:1px solid var(--card-brd);border-radius:16px;padding:22px}
+.feat-item .fi{font-size:26px;flex-shrink:0}
+.feat-item h4{font-size:17px;font-family:'Sora';margin-bottom:5px}
+.feat-item p{color:var(--muted);font-size:14px}
+
+/* calculator */
+.calc{background:var(--card);border:1px solid var(--card-brd);border-radius:24px;padding:34px;margin-top:42px;display:grid;grid-template-columns:1fr 320px;gap:34px;box-shadow:var(--shadow)}
+.calc label{display:block;font-weight:700;font-size:14px;margin:18px 0 9px}
+.calc label:first-child{margin-top:0}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opt{border:1px solid var(--card-brd);background:var(--bg2);border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600;font-size:14px;transition:.2s;flex:1;text-align:center;min-width:90px}
+.opt.active{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.calc input[type=range]{width:100%;accent-color:var(--accent)}
+.calc-out{background:linear-gradient(160deg,var(--accent2),#1e3a8a);border-radius:18px;padding:26px;color:#fff;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.calc-out .lbl{font-size:14px;opacity:.85}
+.calc-out .sum{font-family:'Sora';font-weight:800;font-size:40px;margin:8px 0;line-height:1}
+.calc-out .note{font-size:12.5px;opacity:.8;margin-bottom:18px}
+.calc-out .btn{background:#fff;color:#0b3a66}
+.range-val{float:right;color:var(--accent);font-weight:800}
+
+/* before/after */
+.ba{position:relative;max-width:760px;margin:42px auto 0;border-radius:20px;overflow:hidden;border:1px solid var(--card-brd);user-select:none;aspect-ratio:16/9}
+.ba .layer{position:absolute;inset:0;display:grid;place-items:center;font-family:'Sora';font-weight:800;font-size:30px}
+.ba .before{background:linear-gradient(135deg,#334155,#0f172a);color:#fca5a5}
+.ba .after{background:linear-gradient(135deg,#1e82e5,#1731c6);color:#bbf7d0;clip-path:inset(0 50% 0 0)}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--accent);cursor:ew-resize;box-shadow:0 0 14px var(--accent)}
+.ba .handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;background:var(--accent);color:#04121f;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:900}
+.ba .tag{position:absolute;top:14px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:800;background:#0008;color:#fff}
+.ba .tag.l{left:14px}.ba .tag.r{right:14px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:42px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--card-brd);border-radius:16px;padding:24px;position:relative}
+.step::before{counter-increment:s;content:counter(s);font-family:'Sora';font-weight:800;font-size:46px;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.5;line-height:1}
+.step h4{font-size:17px;font-family:'Sora';margin:10px 0 6px}
+.step p{color:var(--muted);font-size:14px}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:42px}
+.rev{background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:24px}
+.rev .stars{color:var(--warn);font-size:15px;margin-bottom:12px;letter-spacing:2px}
+.rev p{font-size:14.5px;margin-bottom:16px}
+.rev .who{display:flex;align-items:center;gap:11px}
+.rev .av{width:42px;height:42px;border-radius:50%;background:var(--accent-grad);display:grid;place-items:center;font-weight:800;color:#04121f}
+.rev .who b{display:block;font-size:14px}
+.rev .who span{font-size:12.5px;color:var(--muted)}
+
+/* faq */
+.faq{max-width:780px;margin:42px auto 0}
+.q{background:var(--card);border:1px solid var(--card-brd);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.q summary{padding:18px 22px;cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";font-size:24px;color:var(--accent);transition:.3s;flex-shrink:0}
+.q[open] summary::after{transform:rotate(45deg)}
+.q .a{padding:0 22px 20px;color:var(--muted);font-size:15px}
+
+/* booking / cta */
+.cta-band{background:linear-gradient(135deg,var(--accent2),#1e3a8a);border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;color:#fff;box-shadow:var(--shadow)}
+.cta-band h2{font-size:clamp(26px,3.5vw,38px);margin-bottom:12px}
+.cta-band p{opacity:.9;font-size:16px;max-width:440px}
+.form{background:#ffffff14;border:1px solid #ffffff33;border-radius:18px;padding:26px;backdrop-filter:blur(8px)}
+.form input,.form select{width:100%;padding:13px 15px;border-radius:11px;border:1px solid #ffffff44;background:#ffffff1a;color:#fff;font:inherit;margin-bottom:12px;outline:none}
+.form input::placeholder{color:#ffffffaa}
+.form select option{color:#0b1220}
+.form .btn{width:100%;background:#fff;color:#0b3a66}
+.form small{display:block;text-align:center;opacity:.8;margin-top:10px;font-size:12px}
+
+/* footer */
+footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+.foot p{color:var(--muted);font-size:14px;margin-top:12px;max-width:320px}
+.foot h5{font-family:'Sora';font-size:15px;margin-bottom:14px}
+.foot a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:.2s}
+.foot a:hover{color:var(--accent)}
+.copy{text-align:center;color:var(--muted);font-size:13px;margin-top:36px;padding-top:24px;border-top:1px solid var(--card-brd)}
+
+/* floating */
+.float{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column;gap:12px}
+.float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 26px -8px #000a;transition:transform .2s;color:#fff}
+.float a svg{width:30px;height:30px}
+.float a:hover{transform:scale(1.1)}
+.float .wa{background:#25d366}.float .tg{background:#229ed9}
+.mob-cta{display:none}
+
+/* reveal anim */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:900px){
+  body{padding-bottom:76px}
+  .wrap{padding:0 18px}
+  .hero-grid,.calc,.cta-band,.foot{grid-template-columns:1fr}
+  .cards,.feat,.steps,.revs{grid-template-columns:1fr 1fr}
+  .nav nav,.tools .desk{display:none}
+  .burger{display:flex}
+  .mobile-nav{position:fixed;inset:68px 0 auto 0;background:var(--bg2);border-bottom:1px solid var(--card-brd);padding:18px 22px;display:none;flex-direction:column;gap:6px;z-index:49}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:12px;color:var(--muted);font-weight:700;border-radius:10px}
+  .mobile-nav a:hover{background:var(--card)}
+  .mob-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--card-brd)}
+  .mob-cta .btn{width:100%;padding:15px}
+  .float{bottom:84px;right:16px}
+  .float a{width:50px;height:50px;font-size:23px}
+  .hero{padding:48px 0 40px}
+  .cta-band{border-radius:22px}
+}
+@media(max-width:640px){
+  .cards,.feat,.steps,.revs{grid-template-columns:1fr}
+  section.block{padding:48px 0}
+  .calc,.cta-band{padding:22px}
+  .nav{gap:10px;height:62px}
+  .logo{font-size:17px}.logo .mark{width:30px;height:30px;font-size:16px}
+  .chip{padding:8px 9px;font-size:12px}
+  .tools{gap:7px;margin-left:8px}
+  .mobile-nav{inset:62px 0 auto 0}
+  .hero h1{font-size:30px}
+  .hero p.lead{font-size:15.5px}
+  .hero-cta{gap:10px}
+  .hero-cta .btn{flex:1;text-align:center;padding:13px 14px}
+  .hero-trust{gap:14px 22px;justify-content:space-between}
+  .hero-trust b{font-size:21px}
+  .calc{gap:20px}
+  .calc-out .sum{font-size:34px}
+  .opt{padding:11px 12px;font-size:13.5px;min-width:0}
+  .sec-title{font-size:24px}
+  .cta-band h2{font-size:24px}
+  .ba .layer{font-size:22px}
+  .float a{width:46px;height:46px;font-size:21px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:26px}
+  .hero-trust{gap:12px 16px}
+  .hero-trust b{font-size:19px}
+  .chip span{display:none}
+}
+</style>
+</head>
+<body>
+<div class="glow"><span></span><span></span><span></span></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="mark">◈</span> AutoMaster<span class="accent">Glass</span></a>
+    <nav>
+      <a href="#services" data-i18n="nav_services">Услуги</a>
+      <a href="#calc" data-i18n="nav_calc">Калькулятор</a>
+      <a href="#why" data-i18n="nav_why">Преимущества</a>
+      <a href="#reviews" data-i18n="nav_reviews">Отзывы</a>
+      <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+    </nav>
+    <div class="tools">
+      <button class="chip" id="theme" title="Тема">🌙</button>
+      <div class="lang-wrap">
+        <button class="chip" id="langBtn">🌐 <span id="langCur">RU</span></button>
+        <div class="lang-menu" id="langMenu">
+          <button data-lang="ru">🇷🇺 Русский</button>
+          <button data-lang="en">🇬🇧 English</button>
+          <button data-lang="uz">🇺🇿 O‘zbekcha</button>
+        </div>
+      </div>
+      <a href="#book" class="btn btn-primary desk" data-i18n="nav_book">Записаться</a>
+    </div>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services" data-i18n="nav_services">Услуги</a>
+    <a href="#calc" data-i18n="nav_calc">Калькулятор</a>
+    <a href="#why" data-i18n="nav_why">Преимущества</a>
+    <a href="#reviews" data-i18n="nav_reviews">Отзывы</a>
+    <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="badge"><span class="dot"></span><span data-i18n="hero_badge">Работаем Пн–Вс, 10:00–22:00 · Выезд по городу</span></span>
+      <h1 data-i18n="hero_h1">Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span></h1>
+      <p class="lead" data-i18n="hero_lead">Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 80–90%.</p>
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-primary" data-i18n="hero_cta1">Записаться онлайн</a>
+        <a href="#calc" class="btn btn-ghost" data-i18n="hero_cta2">Рассчитать цену</a>
+      </div>
+      <div class="hero-trust">
+        <div><b>4.9★</b><span data-i18n="hero_t1">327 отзывов</span></div>
+        <div><b>6 мес</b><span data-i18n="hero_t2">гарантия</span></div>
+        <div><b>30 мин</b><span data-i18n="hero_t3">средний ремонт</span></div>
+        <div><b>5000+</b><span data-i18n="hero_t4">авто отремонтировано</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal in">
+      <div class="hero-card">
+        <div class="glass-anim">
+          <svg class="wsvg" viewBox="0 0 340 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="scanGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#e3f4ff" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="reflect" stroke-width="16" stroke-linecap="round">
+              <line x1="46" y1="-12" x2="128" y2="200"/>
+              <line x1="98" y1="-12" x2="180" y2="200"/>
+            </g>
+            <path class="crack-line crack-main" d="M58 84 L104 96 L138 80 L170 90 L206 78 L246 94 L286 80"/>
+            <path class="crack-line crack-b1" d="M170 90 L162 66 L176 44"/>
+            <path class="crack-line crack-b2" d="M170 90 L182 116 L168 142"/>
+            <g class="chip">
+              <line x1="170" y1="90" x2="157" y2="77"/>
+              <line x1="170" y1="90" x2="185" y2="79"/>
+              <line x1="170" y1="90" x2="159" y2="105"/>
+              <line x1="170" y1="90" x2="183" y2="103"/>
+              <circle class="chip-core" cx="170" cy="90" r="4.5"/>
+            </g>
+            <rect class="scan" x="0" y="0" width="48" height="180" fill="url(#scanGrad)"/>
+          </svg>
+        </div>
+        <div class="row"><span data-i18n="hc_1">Диагностика</span><b style="color:var(--ok)" data-i18n="hc_free">Бесплатно</b></div>
+        <div class="row"><span data-i18n="hc_2">Ремонт скола</span><b>от 100 000</b></div>
+        <div class="row"><span data-i18n="hc_3">Гарантия</span><b>6 мес</b></div>
+        <div class="row"><span data-i18n="hc_4">Выезд мастера</span><b style="color:var(--accent)" data-i18n="hc_avail">Доступен</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- trust logos / strip -->
+<section class="block" id="services" style="padding-top:30px">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="sv_eye">Наши услуги</div>
+      <h2 class="sec-title" data-i18n="sv_title">Три способа спасти ваше стекло</h2>
+      <p class="sec-sub center" data-i18n="sv_sub">Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="ico">🔧</div>
+        <h3 data-i18n="sv1_t">Ремонт скола</h3>
+        <p data-i18n="sv1_d">Скол засверливается и заливается полимерным составом. Становится незаметным на 80–90%.</p>
+        <div class="price" data-i18n="sv1_p">от 100 000 сум</div>
+        <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
+      </div>
+      <div class="card reveal">
+        <div class="ico">⚡</div>
+        <h3 data-i18n="sv2_t">Ремонт трещины</h3>
+        <p data-i18n="sv2_d">Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.</p>
+        <div class="price" data-i18n="sv2_p">12 000 сум / см</div>
+        <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
+      </div>
+      <div class="card reveal">
+        <div class="ico">🛑</div>
+        <h3 data-i18n="sv3_t">Остановка трещины</h3>
+        <p data-i18n="sv3_d">Засверливание для остановки роста + заполнение полимером на 2–3 см.</p>
+        <div class="price" data-i18n="sv3_p">180 000 сум</div>
+        <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- calculator -->
+<section class="block" id="calc">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="cl_eye">Калькулятор</div>
+      <h2 class="sec-title" data-i18n="cl_title">Узнайте цену за 10 секунд</h2>
+      <p class="sec-sub center" data-i18n="cl_sub">Предварительный расчёт. Точную стоимость подтвердит мастер после бесплатной диагностики.</p>
+    </div>
+    <div class="calc reveal">
+      <div>
+        <label data-i18n="cl_type">Тип повреждения</label>
+        <div class="opts" id="cType">
+          <div class="opt active" data-val="chip" data-base="100000" data-i18n="cl_chip">Скол</div>
+          <div class="opt" data-val="crack" data-base="0" data-perlen="12000" data-i18n="cl_crack">Трещина</div>
+          <div class="opt" data-val="stop" data-base="180000" data-i18n="cl_stop">Остановка</div>
+        </div>
+
+        <label id="lenLabel" style="display:none">
+          <span data-i18n="cl_len">Длина трещины</span>: <span class="range-val"><span id="lenVal">10</span> см</span>
+        </label>
+        <input type="range" id="cLen" min="1" max="40" value="10" style="display:none">
+
+        <label data-i18n="cl_count">Количество повреждений: <span class="range-val" id="cntVal">1</span></label>
+        <input type="range" id="cCount" min="1" max="6" value="1">
+
+        <label data-i18n="cl_place">Где ремонтируем</label>
+        <div class="opts" id="cPlace">
+          <div class="opt active" data-val="shop" data-add="0" data-i18n="cl_shop">В сервисе</div>
+          <div class="opt" data-val="mobile" data-add="50000" data-i18n="cl_mobile">Выезд (+50 000)</div>
+        </div>
+      </div>
+      <div class="calc-out">
+        <div class="lbl" data-i18n="cl_result">Примерная стоимость</div>
+        <div class="sum"><span id="calcSum">100 000</span></div>
+        <div class="note" data-i18n="cl_currency">сум</div>
+        <a href="#book" class="btn" data-i18n="cl_book">Записаться по этой цене</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- why -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="wh_eye">Почему мы</div>
+      <h2 class="sec-title" data-i18n="wh_title">Преимущества, которые видно в работе</h2>
+    </div>
+    <div class="feat">
+      <div class="feat-item reveal"><div class="fi">💬</div><div><h4 data-i18n="wh1_t">Честная цена сразу</h4><p data-i18n="wh1_d">Называем реальную стоимость по телефону, а не другую «по факту».</p></div></div>
+      <div class="feat-item reveal"><div class="fi">🇺🇸</div><div><h4 data-i18n="wh2_t">Материалы из США</h4><p data-i18n="wh2_d">Используем только качественные сертифицированные полимеры.</p></div></div>
+      <div class="feat-item reveal"><div class="fi">🛡️</div><div><h4 data-i18n="wh3_t">Гарантия до 6 месяцев</h4><p data-i18n="wh3_d">На сколы и на трещины до 15 см. Если что — переделаем.</p></div></div>
+      <div class="feat-item reveal"><div class="fi">⏱️</div><div><h4 data-i18n="wh4_t">Быстро, без потери качества</h4><p data-i18n="wh4_d">Средний ремонт 30–60 минут — и вы снова за рулём.</p></div></div>
+      <div class="feat-item reveal"><div class="fi">🎯</div><div><h4 data-i18n="wh5_t">Узкая специализация</h4><p data-i18n="wh5_d">Занимаемся только автостёклами — отсюда лучшее качество.</p></div></div>
+      <div class="feat-item reveal"><div class="fi">📷</div><div><h4 data-i18n="wh6_t">Рекалибровка ADAS</h4><p data-i18n="wh6_d">Настраиваем камеры и датчики систем помощи водителю после работ.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- before after -->
+<section class="block">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="ba_eye">Результат</div>
+      <h2 class="sec-title" data-i18n="ba_title">До и после ремонта</h2>
+      <p class="sec-sub center" data-i18n="ba_sub">Потяните ползунок, чтобы увидеть разницу.</p>
+    </div>
+    <div class="ba reveal" id="ba">
+      <div class="layer before"><span>✕ <span data-i18n="ba_before">Скол / трещина</span></span></div>
+      <div class="layer after" id="baAfter"><span>✓ <span data-i18n="ba_after">Чистое стекло</span></span></div>
+      <div class="tag l" data-i18n="ba_tag_b">ДО</div>
+      <div class="tag r" data-i18n="ba_tag_a">ПОСЛЕ</div>
+      <div class="handle" id="baHandle"></div>
+    </div>
+  </div>
+</section>
+
+<!-- steps -->
+<section class="block">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="st_eye">Как мы работаем</div>
+      <h2 class="sec-title" data-i18n="st_title">4 простых шага</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h4 data-i18n="st1_t">Заявка</h4><p data-i18n="st1_d">Оставляете заявку онлайн или в Telegram/WhatsApp.</p></div>
+      <div class="step reveal"><h4 data-i18n="st2_t">Диагностика</h4><p data-i18n="st2_d">Бесплатно оцениваем повреждение и называем точную цену.</p></div>
+      <div class="step reveal"><h4 data-i18n="st3_t">Ремонт</h4><p data-i18n="st3_d">Восстанавливаем стекло за 30–60 минут полимером.</p></div>
+      <div class="step reveal"><h4 data-i18n="st4_t">Гарантия</h4><p data-i18n="st4_d">Выдаём гарантию до 6 месяцев на работу.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- reviews -->
+<section class="block" id="reviews">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="rv_eye">Отзывы</div>
+      <h2 class="sec-title" data-i18n="rv_title">Нам доверяют 5000+ водителей</h2>
+    </div>
+    <div class="revs">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p data-i18n="rv1">«Скол на пол-капота был — после ремонта еле нашёл место. Цену назвали сразу, без накруток.»</p><div class="who"><span class="av">А</span><div><b>Алишер</b><span data-i18n="rv1_c">Toyota Camry</span></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p data-i18n="rv2">«Приехали на выезд прямо к офису. Трещину остановили за 40 минут. Рекомендую!»</p><div class="who"><span class="av">D</span><div><b>Dmitriy</b><span data-i18n="rv2_c">Kia K5</span></div></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p data-i18n="rv3">«Боялся, что разведут. В итоге всё честно, гарантию дали письменно. Стекло как новое.»</p><div class="who"><span class="av">С</span><div><b>Сардор</b><span data-i18n="rv3_c">Chevrolet Malibu</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="reveal center" style="text-align:center">
+      <div class="eyebrow" data-i18n="fq_eye">FAQ</div>
+      <h2 class="sec-title" data-i18n="fq_title">Частые вопросы</h2>
+    </div>
+    <div class="faq">
+      <details class="q reveal"><summary data-i18n="fq1_q">Можно ли отремонтировать скол, а не менять стекло?</summary><div class="a" data-i18n="fq1_a">Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.</div></details>
+      <details class="q reveal"><summary data-i18n="fq2_q">Сколько по времени занимает ремонт?</summary><div class="a" data-i18n="fq2_a">В среднем 30–60 минут в зависимости от типа и количества повреждений.</div></details>
+      <details class="q reveal"><summary data-i18n="fq3_q">Какие повреждения уже нельзя ремонтировать?</summary><div class="a" data-i18n="fq3_a">Трещины длиннее 30–40 см, повреждения прямо в зоне обзора водителя или с раскрошенным стеклом обычно требуют замены. Точно скажем после бесплатной диагностики.</div></details>
+      <details class="q reveal"><summary data-i18n="fq4_q">Вы выезжаете на место?</summary><div class="a" data-i18n="fq4_a">Да, мастер может приехать к вам — выберите опцию «Выезд» в калькуляторе или укажите в заявке.</div></details>
+      <details class="q reveal"><summary data-i18n="fq5_q">Нужно ли настраивать камеры после ремонта?</summary><div class="a" data-i18n="fq5_a">Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- booking -->
+<section class="block" id="book">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <h2 data-i18n="bk_h">Запишитесь на ремонт за 30 секунд</h2>
+        <p data-i18n="bk_p">Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.</p>
+        <div class="hero-trust" style="margin-top:24px">
+          <div><b style="color:#fff">+998 91 795 00 63</b><span style="color:#ffffffcc" data-i18n="bk_phone">Пн–Вс 10:00–22:00</span></div>
+        </div>
+      </div>
+      <form class="form" id="bookForm" onsubmit="return submitForm(event)">
+        <input type="text" name="name" placeholder="Ваше имя" data-ph="bk_name" required>
+        <input type="tel" name="phone" placeholder="+998 __ ___ __ __" data-ph="bk_phone_ph" required>
+        <select name="service" data-i18n-opts="bk_opts">
+          <option data-i18n="bk_o1">Ремонт скола</option>
+          <option data-i18n="bk_o2">Ремонт трещины</option>
+          <option data-i18n="bk_o3">Остановка трещины</option>
+          <option data-i18n="bk_o4">Не знаю — нужна диагностика</option>
+        </select>
+        <button type="submit" class="btn" data-i18n="bk_send">Отправить заявку</button>
+        <small data-i18n="bk_privacy">Нажимая кнопку, вы соглашаетесь на обработку данных</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a href="#top" class="logo"><span class="mark">◈</span> AutoMaster<span class="accent">Glass</span></a>
+      <p data-i18n="ft_about">Профессиональный ремонт сколов и трещин лобового стекла. Прозрачные цены, материалы из США, гарантия до 6 месяцев.</p>
+    </div>
+    <div>
+      <h5 data-i18n="ft_nav">Навигация</h5>
+      <a href="#services" data-i18n="nav_services">Услуги</a>
+      <a href="#calc" data-i18n="nav_calc">Калькулятор</a>
+      <a href="#why" data-i18n="nav_why">Преимущества</a>
+      <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+    </div>
+    <div>
+      <h5 data-i18n="ft_contacts">Контакты</h5>
+      <a href="tel:+998917950063">+998 91 795 00 63</a>
+      <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://wa.me/998917950063" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#" data-i18n="ft_maps">Яндекс.Карты: AutoMasterGlass</a>
+    </div>
+  </div>
+  <div class="wrap copy">© <span id="yr"></span> AutoMasterGlass · <span data-i18n="ft_rights">Все права защищены</span></div>
+</footer>
+
+<div class="float">
+  <a class="wa" href="https://wa.me/998917950063?text=Привет!%20Хочу%20записаться%20на%20ремонт" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.81L4 28l7.34-2.5a11.02 11.02 0 0 0 4.7 1.05h.01c6.11 0 11.06-4.95 11.06-11.06C27.1 8.95 22.15 4 16.04 4zm0 20.3h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.92 1.33 1.35-3.82-.2-.32a8.94 8.94 0 0 1-1.37-4.77c0-4.94 4.02-8.96 8.97-8.96 2.4 0 4.65.94 6.34 2.63a8.9 8.9 0 0 1 2.62 6.34c0 4.95-4.02 8.96-8.96 8.96zm4.92-6.71c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.52-.45-.45-.61-.46h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+  </a>
+  <a class="tg" href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.14-3.05-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+  </a>
+</div>
+<div class="mob-cta"><a href="#book" class="btn btn-primary" data-i18n="nav_book">Записаться на ремонт</a></div>
+
+<script>
+/* ---------- i18n ---------- */
+const I18N={
+ ru:{nav_services:"Услуги",nav_calc:"Калькулятор",nav_why:"Преимущества",nav_reviews:"Отзывы",nav_faq:"Вопросы",nav_book:"Записаться",
+  hero_badge:"Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",hero_h1:'Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span>',hero_lead:"Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 80–90%.",hero_cta1:"Записаться онлайн",hero_cta2:"Рассчитать цену",hero_t1:"327 отзывов",hero_t2:"гарантия",hero_t3:"средний ремонт",hero_t4:"авто отремонтировано",
+  hc_1:"Диагностика",hc_free:"Бесплатно",hc_2:"Ремонт скола",hc_3:"Гарантия",hc_4:"Выезд мастера",hc_avail:"Доступен",
+  sv_eye:"Наши услуги",sv_title:"Три способа спасти ваше стекло",sv_sub:"Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».",sv1_t:"Ремонт скола",sv1_d:"Скол засверливается и заливается полимерным составом. Становится незаметным на 80–90%.",sv1_p:"от 100 000 сум",sv2_t:"Ремонт трещины",sv2_d:"Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.",sv2_p:"12 000 сум / см",sv3_t:"Остановка трещины",sv3_d:"Засверливание для остановки роста + заполнение полимером на 2–3 см.",sv3_p:"180 000 сум",sv_btn:"Записаться",
+  cl_eye:"Калькулятор",cl_title:"Узнайте цену за 10 секунд",cl_sub:"Предварительный расчёт. Точную стоимость подтвердит мастер после бесплатной диагностики.",cl_type:"Тип повреждения",cl_chip:"Скол",cl_crack:"Трещина",cl_stop:"Остановка",cl_len:"Длина трещины",cl_count:"Количество повреждений:",cl_place:"Где ремонтируем",cl_shop:"В сервисе",cl_mobile:"Выезд (+50 000)",cl_result:"Примерная стоимость",cl_currency:"сум",cl_book:"Записаться по этой цене",
+  wh_eye:"Почему мы",wh_title:"Преимущества, которые видно в работе",wh1_t:"Честная цена сразу",wh1_d:"Называем реальную стоимость по телефону, а не другую «по факту».",wh2_t:"Материалы из США",wh2_d:"Используем только качественные сертифицированные полимеры.",wh3_t:"Гарантия до 6 месяцев",wh3_d:"На сколы и на трещины до 15 см. Если что — переделаем.",wh4_t:"Быстро, без потери качества",wh4_d:"Средний ремонт 30–60 минут — и вы снова за рулём.",wh5_t:"Узкая специализация",wh5_d:"Занимаемся только автостёклами — отсюда лучшее качество.",wh6_t:"Рекалибровка ADAS",wh6_d:"Настраиваем камеры и датчики систем помощи водителю после работ.",
+  ba_eye:"Результат",ba_title:"До и после ремонта",ba_sub:"Потяните ползунок, чтобы увидеть разницу.",ba_before:"Скол / трещина",ba_after:"Чистое стекло",ba_tag_b:"ДО",ba_tag_a:"ПОСЛЕ",
+  st_eye:"Как мы работаем",st_title:"4 простых шага",st1_t:"Заявка",st1_d:"Оставляете заявку онлайн или в Telegram/WhatsApp.",st2_t:"Диагностика",st2_d:"Бесплатно оцениваем повреждение и называем точную цену.",st3_t:"Ремонт",st3_d:"Восстанавливаем стекло за 30–60 минут полимером.",st4_t:"Гарантия",st4_d:"Выдаём гарантию до 6 месяцев на работу.",
+  rv_eye:"Отзывы",rv_title:"Нам доверяют 5000+ водителей",rv1:"«Скол на пол-капота был — после ремонта еле нашёл место. Цену назвали сразу, без накруток.»",rv1_c:"Toyota Camry",rv2:"«Приехали на выезд прямо к офису. Трещину остановили за 40 минут. Рекомендую!»",rv2_c:"Kia K5",rv3:"«Боялся, что разведут. В итоге всё честно, гарантию дали письменно. Стекло как новое.»",rv3_c:"Chevrolet Malibu",
+  fq_eye:"FAQ",fq_title:"Частые вопросы",fq1_q:"Можно ли отремонтировать скол, а не менять стекло?",fq1_a:"Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.",fq2_q:"Сколько по времени занимает ремонт?",fq2_a:"В среднем 30–60 минут в зависимости от типа и количества повреждений.",fq3_q:"Какие повреждения уже нельзя ремонтировать?",fq3_a:"Трещины длиннее 30–40 см, повреждения прямо в зоне обзора водителя или с раскрошенным стеклом обычно требуют замены. Точно скажем после бесплатной диагностики.",fq4_q:"Вы выезжаете на место?",fq4_a:"Да, мастер может приехать к вам — выберите опцию «Выезд» в калькуляторе или укажите в заявке.",fq5_q:"Нужно ли настраивать камеры после ремонта?",fq5_a:"Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.",
+  bk_h:"Запишитесь на ремонт за 30 секунд",bk_p:"Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.",bk_phone:"Пн–Вс 10:00–22:00",bk_name:"Ваше имя",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Ремонт скола",bk_o2:"Ремонт трещины",bk_o3:"Остановка трещины",bk_o4:"Не знаю — нужна диагностика",bk_send:"Отправить заявку",bk_privacy:"Нажимая кнопку, вы соглашаетесь на обработку данных",bk_ok:"Спасибо! Заявка принята — перезвоним в течение 15 минут.",
+  ft_about:"Профессиональный ремонт сколов и трещин лобового стекла. Прозрачные цены, материалы из США, гарантия до 6 месяцев.",ft_nav:"Навигация",ft_contacts:"Контакты",ft_maps:"Яндекс.Карты: AutoMasterGlass",ft_rights:"Все права защищены"},
+
+ en:{nav_services:"Services",nav_calc:"Calculator",nav_why:"Advantages",nav_reviews:"Reviews",nav_faq:"FAQ",nav_book:"Book now",
+  hero_badge:"Open Mon–Sun, 10:00–22:00 · Mobile service",hero_h1:'Windshield chip & crack repair <span class="accent">with warranty</span>',hero_lead:"We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 80–90% invisible.",hero_cta1:"Book online",hero_cta2:"Calculate price",hero_t1:"327 reviews",hero_t2:"warranty",hero_t3:"average repair",hero_t4:"cars repaired",
+  hc_1:"Diagnostics",hc_free:"Free",hc_2:"Chip repair",hc_3:"Warranty",hc_4:"Mobile service",hc_avail:"Available",
+  sv_eye:"Our services",sv_title:"Three ways to save your glass",sv_sub:"Transparent prices we quote upfront — no surprises afterwards.",sv1_t:"Chip repair",sv1_d:"The chip is drilled and filled with resin, becoming 80–90% invisible.",sv1_p:"from 100,000 UZS",sv2_t:"Crack repair",sv2_d:"Stopping and filling the crack with resin — 60–70% less visible.",sv2_p:"12,000 UZS / cm",sv3_t:"Crack stop",sv3_d:"Drilling to stop the spread + resin fill for 2–3 cm.",sv3_p:"180,000 UZS",sv_btn:"Book",
+  cl_eye:"Calculator",cl_title:"Get a price in 10 seconds",cl_sub:"Preliminary estimate. Final price confirmed by the master after free diagnostics.",cl_type:"Damage type",cl_chip:"Chip",cl_crack:"Crack",cl_stop:"Stop",cl_len:"Crack length",cl_count:"Number of damages:",cl_place:"Where to repair",cl_shop:"In shop",cl_mobile:"Mobile (+50,000)",cl_result:"Estimated price",cl_currency:"UZS",cl_book:"Book at this price",
+  wh_eye:"Why us",wh_title:"Advantages you can see in our work",wh1_t:"Honest price upfront",wh1_d:"We quote the real price on the phone, not a different one later.",wh2_t:"US-made materials",wh2_d:"We use only quality certified resins.",wh3_t:"Up to 6 months warranty",wh3_d:"On chips and cracks up to 15 cm. We'll redo it if needed.",wh4_t:"Fast, no quality loss",wh4_d:"Average repair 30–60 min — and you're back on the road.",wh5_t:"Narrow specialization",wh5_d:"We do auto glass only — hence the best quality.",wh6_t:"ADAS recalibration",wh6_d:"We calibrate driver-assist cameras and sensors after the work.",
+  ba_eye:"Result",ba_title:"Before & after repair",ba_sub:"Drag the slider to see the difference.",ba_before:"Chip / crack",ba_after:"Clear glass",ba_tag_b:"BEFORE",ba_tag_a:"AFTER",
+  st_eye:"How we work",st_title:"4 simple steps",st1_t:"Request",st1_d:"Leave a request online or via Telegram/WhatsApp.",st2_t:"Diagnostics",st2_d:"We assess the damage for free and give an exact price.",st3_t:"Repair",st3_d:"We restore the glass in 30–60 minutes with resin.",st4_t:"Warranty",st4_d:"We provide up to 6 months warranty on the work.",
+  rv_eye:"Reviews",rv_title:"Trusted by 5000+ drivers",rv1:"\"Half-palm chip — after the repair I could barely find the spot. Price quoted upfront, no markups.\"",rv1_c:"Toyota Camry",rv2:"\"They came right to my office. Stopped the crack in 40 minutes. Recommend!\"",rv2_c:"Kia K5",rv3:"\"I was afraid of a scam. It was all fair, warranty in writing. Glass like new.\"",rv3_c:"Chevrolet Malibu",
+  fq_eye:"FAQ",fq_title:"Frequently asked",fq1_q:"Can a chip be repaired instead of replacing the glass?",fq1_a:"Yes, in most cases a chip or small crack can be restored with resin — far cheaper than replacement and it keeps your factory glass.",fq2_q:"How long does the repair take?",fq2_a:"On average 30–60 minutes depending on type and number of damages.",fq3_q:"Which damages can't be repaired?",fq3_a:"Cracks longer than 30–40 cm, damage right in the driver's view, or shattered glass usually need replacement. We'll tell you exactly after free diagnostics.",fq4_q:"Do you offer mobile service?",fq4_a:"Yes, a master can come to you — pick the 'Mobile' option in the calculator or note it in your request.",fq5_q:"Do cameras need calibration after repair?",fq5_a:"If your car has driver-assist systems (ADAS) and the work touched the camera area, we'll recalibrate so the sensors work correctly.",
+  bk_h:"Book your repair in 30 seconds",bk_p:"Leave your number — we'll call back within 15 minutes, answer your questions and pick a convenient time. Diagnostics are free.",bk_phone:"Mon–Sun 10:00–22:00",bk_name:"Your name",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chip repair",bk_o2:"Crack repair",bk_o3:"Crack stop",bk_o4:"Not sure — need diagnostics",bk_send:"Send request",bk_privacy:"By clicking you agree to data processing",bk_ok:"Thank you! Request received — we'll call within 15 minutes.",
+  ft_about:"Professional windshield chip and crack repair. Transparent prices, US-made materials, warranty up to 6 months.",ft_nav:"Navigation",ft_contacts:"Contacts",ft_maps:"Yandex.Maps: AutoMasterGlass",ft_rights:"All rights reserved"},
+
+ uz:{nav_services:"Xizmatlar",nav_calc:"Kalkulyator",nav_why:"Afzalliklar",nav_reviews:"Sharhlar",nav_faq:"Savollar",nav_book:"Yozilish",
+  hero_badge:"Du–Yak, 10:00–22:00 · Joyiga chiqamiz",hero_h1:'Old oynadagi chaqmoq va yoriqlarni <span class="accent">kafolat bilan</span> ta\'mirlash',hero_lead:"Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 80–90% ko‘rinmas bo‘ladi.",hero_cta1:"Onlayn yozilish",hero_cta2:"Narxni hisoblash",hero_t1:"327 sharh",hero_t2:"kafolat",hero_t3:"o‘rtacha ta'mir",hero_t4:"avto ta'mirlangan",
+  hc_1:"Diagnostika",hc_free:"Bepul",hc_2:"Chaqmoq ta'miri",hc_3:"Kafolat",hc_4:"Joyiga chiqish",hc_avail:"Mavjud",
+  sv_eye:"Xizmatlarimiz",sv_title:"Oynangizni saqlashning 3 usuli",sv_sub:"Darrov aytadigan shaffof narxlar — keyin “amalda” siri yo‘q.",sv1_t:"Chaqmoq ta'miri",sv1_d:"Chaqmoq teshiladi va polimer bilan to‘ldiriladi. 80–90% ko‘rinmas bo‘ladi.",sv1_p:"100 000 so‘mdan",sv2_t:"Yoriq ta'miri",sv2_d:"Yoriqni to‘xtatish va polimer bilan to‘ldirish — 60–70% kamroq ko‘rinadi.",sv2_p:"12 000 so‘m / sm",sv3_t:"Yoriqni to‘xtatish",sv3_d:"O‘sishni to‘xtatish uchun teshish + 2–3 sm polimer.",sv3_p:"180 000 so‘m",sv_btn:"Yozilish",
+  cl_eye:"Kalkulyator",cl_title:"Narxni 10 soniyada biling",cl_sub:"Taxminiy hisob. Aniq narxni usta bepul diagnostikadan keyin aytadi.",cl_type:"Shikast turi",cl_chip:"Chaqmoq",cl_crack:"Yoriq",cl_stop:"To‘xtatish",cl_len:"Yoriq uzunligi",cl_count:"Shikastlar soni:",cl_place:"Qayerda ta'mirlash",cl_shop:"Servisda",cl_mobile:"Joyiga (+50 000)",cl_result:"Taxminiy narx",cl_currency:"so‘m",cl_book:"Shu narxda yozilish",
+  wh_eye:"Nega biz",wh_title:"Ishda ko‘rinadigan afzalliklar",wh1_t:"Darrov halol narx",wh1_d:"Telefonda haqiqiy narxni aytamiz, keyin boshqasini emas.",wh2_t:"AQSh materiallari",wh2_d:"Faqat sifatli sertifikatlangan polimerlardan foydalanamiz.",wh3_t:"6 oygacha kafolat",wh3_d:"Chaqmoq va 15 sm gacha yoriqlarga. Kerak bo‘lsa qayta qilamiz.",wh4_t:"Tez, sifatni yo‘qotmasdan",wh4_d:"O‘rtacha ta'mir 30–60 daqiqa — va siz yana yo‘ldasiz.",wh5_t:"Tor mutaxassislik",wh5_d:"Faqat avto oynalar bilan shug‘ullanamiz — eng yaxshi sifat shundan.",wh6_t:"ADAS rekalibratsiyasi",wh6_d:"Ishdan keyin haydovchiga yordam kameralari va datchiklarini sozlaymiz.",
+  ba_eye:"Natija",ba_title:"Ta'mirdan oldin va keyin",ba_sub:"Farqni ko‘rish uchun slayderni torting.",ba_before:"Chaqmoq / yoriq",ba_after:"Toza oyna",ba_tag_b:"OLDIN",ba_tag_a:"KEYIN",
+  st_eye:"Qanday ishlaymiz",st_title:"4 oddiy qadam",st1_t:"Ariza",st1_d:"Onlayn yoki Telegram/WhatsApp orqali ariza qoldirasiz.",st2_t:"Diagnostika",st2_d:"Shikastni bepul baholaymiz va aniq narx aytamiz.",st3_t:"Ta'mir",st3_d:"Oynani polimer bilan 30–60 daqiqada tiklaymiz.",st4_t:"Kafolat",st4_d:"Ishga 6 oygacha kafolat beramiz.",
+  rv_eye:"Sharhlar",rv_title:"5000+ haydovchi bizga ishonadi",rv1:"«Katta chaqmoq bor edi — ta'mirdan keyin joyini zo‘rg‘a topdim. Narxni darrov aytishdi.»",rv1_c:"Toyota Camry",rv2:"«To‘g‘ri ofisimga kelishdi. Yoriqni 40 daqiqada to‘xtatishdi. Tavsiya qilaman!»",rv2_c:"Kia K5",rv3:"«Aldashadi deb qo‘rqdim. Hammasi halol, kafolat yozma berishdi. Oyna yangidek.»",rv3_c:"Chevrolet Malibu",
+  fq_eye:"FAQ",fq_title:"Ko‘p so‘raladigan savollar",fq1_q:"Oynani almashtirmasdan chaqmoqni ta'mirlash mumkinmi?",fq1_a:"Ha, ko‘p hollarda chaqmoq yoki kichik yoriqni polimer bilan tiklash mumkin — almashtirishdan ancha arzon va zavod oynasi saqlanadi.",fq2_q:"Ta'mir qancha vaqt oladi?",fq2_a:"O‘rtacha 30–60 daqiqa, tur va shikastlar soniga qarab.",fq3_q:"Qaysi shikastlarni ta'mirlab bo‘lmaydi?",fq3_a:"30–40 sm dan uzun yoriqlar, haydovchi ko‘rish zonasidagi shikast yoki maydalangan oyna odatda almashtirishni talab qiladi. Bepul diagnostikadan keyin aniq aytamiz.",fq4_q:"Joyiga chiqasizmi?",fq4_a:"Ha, usta sizga kelishi mumkin — kalkulyatorda «Joyiga» variantini tanlang yoki arizada ko‘rsating.",fq5_q:"Ta'mirdan keyin kameralarni sozlash kerakmi?",fq5_a:"Agar avtoda ADAS tizimlari bo‘lsa va ish kamera zonasiga ta'sir qilsa — datchiklar to‘g‘ri ishlashi uchun rekalibratsiya qilamiz.",
+  bk_h:"Ta'mirga 30 soniyada yoziling",bk_p:"Raqamingizni qoldiring — 15 daqiqada qo‘ng‘iroq qilamiz, savollarga javob beramiz va qulay vaqt tanlaymiz. Diagnostika bepul.",bk_phone:"Du–Yak 10:00–22:00",bk_name:"Ismingiz",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chaqmoq ta'miri",bk_o2:"Yoriq ta'miri",bk_o3:"Yoriqni to‘xtatish",bk_o4:"Bilmayman — diagnostika kerak",bk_send:"Ariza yuborish",bk_privacy:"Tugmani bosib, ma'lumotlarni qayta ishlashga rozilik bildirasiz",bk_ok:"Rahmat! Ariza qabul qilindi — 15 daqiqada qo‘ng‘iroq qilamiz.",
+  ft_about:"Old oyna chaqmoq va yoriqlarini professional ta'mirlash. Shaffof narxlar, AQSh materiallari, 6 oygacha kafolat.",ft_nav:"Navigatsiya",ft_contacts:"Kontaktlar",ft_maps:"Yandex.Xaritalar: AutoMasterGlass",ft_rights:"Barcha huquqlar himoyalangan"}
+};
+
+let curLang='ru';
+function applyLang(lang){
+  curLang=lang; const d=I18N[lang];
+  document.documentElement.lang=lang;
+  document.getElementById('langCur').textContent=lang.toUpperCase();
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!=null)el.innerHTML=d[k];});
+  document.querySelectorAll('[data-ph]').forEach(el=>{const k=el.getAttribute('data-ph');if(d[k]!=null)el.placeholder=d[k];});
+  calc(); // refresh dynamic labels handled separately
+}
+/* lang menu */
+const langBtn=document.getElementById('langBtn'),langMenu=document.getElementById('langMenu');
+langBtn.onclick=e=>{e.stopPropagation();langMenu.classList.toggle('open');};
+document.addEventListener('click',()=>langMenu.classList.remove('open'));
+langMenu.querySelectorAll('button').forEach(b=>b.onclick=()=>{applyLang(b.dataset.lang);langMenu.classList.remove('open');});
+
+/* ---------- theme ---------- */
+const themeBtn=document.getElementById('theme');
+themeBtn.onclick=()=>{const h=document.documentElement;const l=h.getAttribute('data-theme')==='light';h.setAttribute('data-theme',l?'dark':'light');themeBtn.textContent=l?'🌙':'☀️';};
+
+/* ---------- burger ---------- */
+const burger=document.getElementById('burger'),mnav=document.getElementById('mobileNav');
+burger.onclick=()=>{mnav.classList.toggle('open');};
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+
+/* ---------- calculator ---------- */
+let curType='chip';
+const cType=document.getElementById('cType'),cPlace=document.getElementById('cPlace');
+function bindOpts(group,cb){group.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{group.querySelectorAll('.opt').forEach(x=>x.classList.remove('active'));o.classList.add('active');cb&&cb(o);calc();});}
+bindOpts(cType,o=>{curType=o.dataset.val;const isCrack=curType==='crack';document.getElementById('lenLabel').style.display=isCrack?'block':'none';document.getElementById('cLen').style.display=isCrack?'block':'none';});
+bindOpts(cPlace);
+const cLen=document.getElementById('cLen'),cCount=document.getElementById('cCount');
+cLen.oninput=()=>{document.getElementById('lenVal').textContent=cLen.value;calc();};
+cCount.oninput=()=>{document.getElementById('cntVal').textContent=cCount.value;calc();};
+function fmt(n){return n.toLocaleString('ru-RU');}
+function calc(){
+  const t=cType.querySelector('.opt.active');if(!t)return;
+  let base=+t.dataset.base||0;
+  if(curType==='crack')base=(+cLen.value)*(+t.dataset.perlen||0);
+  let sum=base*(+cCount.value);
+  const place=cPlace.querySelector('.opt.active');sum+=(+place.dataset.add||0);
+  document.getElementById('calcSum').textContent=fmt(sum);
+}
+calc();
+
+/* ---------- before/after slider ---------- */
+const ba=document.getElementById('ba'),baAfter=document.getElementById('baAfter'),baHandle=document.getElementById('baHandle');
+function setBA(x){const r=ba.getBoundingClientRect();let p=(x-r.left)/r.width*100;p=Math.max(2,Math.min(98,p));baAfter.style.clipPath=`inset(0 ${100-p}% 0 0)`;baHandle.style.left=p+'%';}
+let drag=false;
+baHandle.addEventListener('pointerdown',()=>drag=true);
+window.addEventListener('pointerup',()=>drag=false);
+window.addEventListener('pointermove',e=>{if(drag)setBA(e.clientX);});
+ba.addEventListener('click',e=>setBA(e.clientX));
+
+/* ---------- form ---------- */
+function submitForm(e){e.preventDefault();const d=I18N[curLang];alert(d.bk_ok);e.target.reset();return false;}
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* year */
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
