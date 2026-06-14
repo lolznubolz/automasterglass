@@ -175,6 +175,9 @@ section.block{padding:74px 0}
 .ba .handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;background:var(--accent);color:#04121f;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:900}
 .ba .tag{position:absolute;top:14px;padding:5px 12px;border-radius:8px;font-size:12px;font-weight:800;background:#0008;color:#fff}
 .ba .tag.l{left:14px}.ba .tag.r{right:14px}
+.ba-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin:16px auto 0;color:var(--muted);font-weight:700;font-size:14px}
+.ba-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-brd);background:var(--card);color:var(--txt);font-size:20px;cursor:pointer;transition:.2s;line-height:1;display:grid;place-items:center}
+.ba-arrow:hover{border-color:var(--accent);color:var(--accent)}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:42px;counter-reset:s}
@@ -483,6 +486,11 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <div class="tag r" data-i18n="ba_tag_a">ПОСЛЕ</div>
       <div class="handle" id="baHandle"></div>
     </div>
+    <div class="ba-nav" id="baNav" style="display:none">
+      <button class="ba-arrow" id="baPrev" type="button" aria-label="Назад">‹</button>
+      <span id="baCount">1 / 1</span>
+      <button class="ba-arrow" id="baNext" type="button" aria-label="Вперёд">›</button>
+    </div>
   </div>
 </section>
 
@@ -690,6 +698,29 @@ ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture&&ba.setPoin
 ba.addEventListener('pointermove',e=>{if(drag)setBA(e.clientX);});
 window.addEventListener('pointerup',()=>drag=false);
 window.addEventListener('pointercancel',()=>drag=false);
+/* галерея пар «до/после» */
+let galleryPairs=[],gi=0;
+function renderPair(){
+  const before=ba.querySelector('.before'),after=baAfter;
+  const bsp=before.querySelector('span'),asp=after.querySelector('span');
+  const nav=document.getElementById('baNav');
+  if(galleryPairs.length){
+    const p=galleryPairs[gi%galleryPairs.length];
+    before.style.cssText+=';background-image:url("/'+p.before+'");background-size:cover;background-position:center';
+    after.style.cssText+=';background-image:url("/'+p.after+'");background-size:cover;background-position:center';
+    if(bsp)bsp.style.display='none';if(asp)asp.style.display='none';
+    baAfter.style.clipPath='inset(0 0 0 50%)';baHandle.style.left='50%';
+    document.getElementById('baCount').textContent=(gi+1)+' / '+galleryPairs.length;
+    nav.style.display=galleryPairs.length>1?'flex':'none';
+  }else{
+    before.style.backgroundImage='';after.style.backgroundImage='';
+    if(bsp)bsp.style.display='';if(asp)asp.style.display='';
+    nav.style.display='none';
+  }
+}
+function setGallery(list){galleryPairs=Array.isArray(list)?list.filter(p=>p&&p.before&&p.after):[];gi=0;renderPair();}
+document.getElementById('baPrev').addEventListener('click',()=>{if(galleryPairs.length){gi=(gi-1+galleryPairs.length)%galleryPairs.length;renderPair();}});
+document.getElementById('baNext').addEventListener('click',()=>{if(galleryPairs.length){gi=(gi+1)%galleryPairs.length;renderPair();}});
 
 /* ---------- form ---------- */
 function submitForm(e){e.preventDefault();const d=I18N[curLang];alert(d.bk_ok);e.target.reset();return false;}
@@ -726,11 +757,10 @@ function applyContent(d){
       document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.href='https://wa.me/'+digits;});
     }
     if(d.telegram){document.querySelectorAll('a[href*="t.me"]').forEach(function(a){a.href='https://t.me/'+d.telegram;});}
-    if(d.beforeAfter){
-      var setImg=function(sel,url){var el=document.querySelector(sel);if(el&&url){el.style.backgroundImage='url("'+url+'")';el.style.backgroundSize='cover';el.style.backgroundPosition='center';var sp=el.querySelector('span');if(sp)sp.style.display='none';}};
-      setImg('.ba .before',d.beforeAfter.before);
-      setImg('.ba .after',d.beforeAfter.after);
-    }
+    var pairs=[];
+    if(d.gallery&&d.gallery.length){pairs=d.gallery;}
+    else if(d.beforeAfter&&d.beforeAfter.before&&d.beforeAfter.after){pairs=[d.beforeAfter];}
+    if(typeof setGallery==='function')setGallery(pairs);
   }catch(e){console.warn('content load',e);}
 }
 fetch('content.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(d){applyContent(d);applyLang(curLang);}).catch(function(){applyLang(curLang);});

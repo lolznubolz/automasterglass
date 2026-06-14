@@ -29,7 +29,7 @@ textarea{resize:vertical;min-height:64px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;font:inherit;font-weight:700;border-radius:11px;padding:13px 22px;font-size:15px}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-primary:disabled{opacity:.5;cursor:default}
-.btn-ghost{background:transparent;border:1px solid var(--brd);color:var(--muted);padding:9px 14px;font-size:13px}
+.btn-ghost{background:transparent;border:1px solid var(--brd);color:var(--muted);padding:9px 14px;font-size:13px;cursor:pointer;border-radius:11px;font-weight:700}
 .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(11,15,23,.94);backdrop-filter:blur(10px);border-top:1px solid var(--brd);padding:12px 18px}
 .bar .inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px}
 .bar .btn-primary{flex:1;max-width:280px}
@@ -42,14 +42,18 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
 .hide{display:none}
 .spin{width:16px;height:16px;border:2px solid #fff6;border-top-color:#fff;border-radius:50%;display:inline-block;animation:s .7s linear infinite;vertical-align:-3px}
 @keyframes s{to{transform:rotate(360deg)}}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.photo{border:1px dashed var(--brd);border-radius:12px;padding:14px;text-align:center}
-.photo h3{margin:0 0 10px;font-size:14px}
-.thumb{width:100%;aspect-ratio:16/10;border-radius:9px;background:#0c1119 center/cover no-repeat;border:1px solid var(--brd);display:grid;place-items:center;color:var(--muted);font-size:13px;margin-bottom:10px}
-.filelbl{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:13px;border-radius:9px;padding:9px 14px;cursor:pointer}
+.pair{border:1px solid var(--brd);border-radius:12px;padding:14px;margin-bottom:14px}
+.pair-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.pair-head b{font-size:14px}
+.rm{background:transparent;border:1px solid var(--brd);color:var(--err);border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer;font-weight:700}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.photo{text-align:center}
+.photo h3{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.thumb{width:100%;aspect-ratio:16/10;border-radius:9px;background:#0c1119 center/cover no-repeat;border:1px solid var(--brd);display:grid;place-items:center;color:var(--muted);font-size:12px;margin-bottom:8px}
+.filelbl{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:12.5px;border-radius:9px;padding:8px 12px;cursor:pointer}
 .filelbl input{display:none}
-.pstatus{font-size:12px;color:var(--muted);margin-top:8px;min-height:16px}
-@media(max-width:560px){.row2,.photos{grid-template-columns:1fr}}
+.pstatus{font-size:12px;color:var(--muted);margin-top:6px;min-height:14px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -111,22 +115,10 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
     </div>
 
     <div class="card">
-      <h2>Фото «До / После»</h2>
-      <p class="hint">Загрузите два фото одного и того же стекла: «До» — со сколом/трещиной, «После» — после ремонта. Фото автоматически сожмётся. После загрузки нажмите «Сохранить» внизу.</p>
-      <div class="photos">
-        <div class="photo">
-          <h3>ДО (повреждённое)</h3>
-          <div class="thumb" id="thumb_before">нет фото</div>
-          <label class="filelbl">Выбрать фото<input type="file" accept="image/*" onchange="pickPhoto('before',this)"></label>
-          <div class="pstatus" id="st_before"></div>
-        </div>
-        <div class="photo">
-          <h3>ПОСЛЕ (отремонтированное)</h3>
-          <div class="thumb" id="thumb_after">нет фото</div>
-          <label class="filelbl">Выбрать фото<input type="file" accept="image/*" onchange="pickPhoto('after',this)"></label>
-          <div class="pstatus" id="st_after"></div>
-        </div>
-      </div>
+      <h2>Галерея работ «До / После»</h2>
+      <p class="hint">Добавьте пары фото одного стекла: «До» (со сколом/трещиной) и «После» (после ремонта). Можно несколько пар — посетители будут их листать. Фото сжимаются автоматически. После изменений нажмите «Сохранить» внизу.</p>
+      <div id="galleryList"></div>
+      <button type="button" class="btn-ghost" style="margin-top:6px" onclick="addPair()">+ Добавить пару</button>
     </div>
 
     <div class="card">
@@ -167,7 +159,7 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
 var OWNER="lolznubolz", REPO="automasterglass", BRANCH="main";
 var TOKEN_KEY="amg_gh_token";
 var contentSha=null;
-var baPhotos={before:"",after:""};
+var galleryArr=[];
 
 function token(){return localStorage.getItem(TOKEN_KEY)||"";}
 function $(id){return document.getElementById(id);}
@@ -198,69 +190,28 @@ function showEditor(on){
   $("openSite").href="https://"+location.host+"/";
 }
 
-function setThumb(which,url){
-  var t=$("thumb_"+which);
-  if(url){t.style.backgroundImage='url("'+url+'")';t.textContent='';}
-  else{t.style.backgroundImage='';t.textContent='нет фото';}
-}
-
-function fill(data){
-  data=data||{};
-  var p=data.prices||{}, t=data.texts||{}, ba=data.beforeAfter||{};
-  $("f_phone").value=data.phoneDisplay||"";
-  $("f_tg").value=data.telegram||"";
-  $("f_chip").value=p.chip!=null?p.chip:"";
-  $("f_crack").value=p.crackPerCm!=null?p.crackPerCm:"";
-  $("f_stop").value=p.stop!=null?p.stop:"";
-  $("f_mobile").value=p.mobile!=null?p.mobile:"";
-  ["ru","en","uz"].forEach(function(l){
-    var x=(t[l])||{};
-    $("f_"+l+"_badge").value=x.hero_badge||"";
-    $("f_"+l+"_h1").value=x.hero_h1||"";
-    $("f_"+l+"_lead").value=x.hero_lead||"";
+/* ---------- галерея ---------- */
+function setThumb(i,which,url){var t=$("th_"+i+"_"+which);if(!t)return;if(url){t.style.backgroundImage='url("'+url+'")';t.textContent='';}else{t.style.backgroundImage='';t.textContent='нет фото';}}
+function renderGallery(){
+  var box=$("galleryList");box.innerHTML="";
+  if(!galleryArr.length){box.insertAdjacentHTML('beforeend','<p class="hint" style="margin:0 0 8px">Пока нет ни одной пары. Нажмите «+ Добавить пару».</p>');}
+  galleryArr.forEach(function(p,i){
+    var div=document.createElement("div");div.className="pair";
+    div.innerHTML='<div class="pair-head"><b>Пара '+(i+1)+'</b><button type="button" class="rm" data-i="'+i+'">Удалить</button></div>'+
+      '<div class="photos">'+
+        '<div class="photo"><h3>ДО</h3><div class="thumb" id="th_'+i+'_before"></div><label class="filelbl">Выбрать фото<input type="file" accept="image/*" data-i="'+i+'" data-w="before"></label><div class="pstatus" id="ps_'+i+'_before"></div></div>'+
+        '<div class="photo"><h3>ПОСЛЕ</h3><div class="thumb" id="th_'+i+'_after"></div><label class="filelbl">Выбрать фото<input type="file" accept="image/*" data-i="'+i+'" data-w="after"></label><div class="pstatus" id="ps_'+i+'_after"></div></div>'+
+      '</div>';
+    box.appendChild(div);
+    setThumb(i,'before',p.before?("/"+p.before):"");
+    setThumb(i,'after',p.after?("/"+p.after):"");
   });
-  baPhotos={before:ba.before||"",after:ba.after||""};
-  setThumb("before",baPhotos.before?("/"+baPhotos.before):"");
-  setThumb("after",baPhotos.after?("/"+baPhotos.after):"");
+  box.querySelectorAll('input[type=file]').forEach(function(inp){inp.addEventListener('change',function(){pickPhoto(parseInt(inp.dataset.i,10),inp.dataset.w,inp);});});
+  box.querySelectorAll('.rm').forEach(function(b){b.addEventListener('click',function(){removePair(parseInt(b.dataset.i,10));});});
 }
+function addPair(){galleryArr.push({before:"",after:""});renderGallery();}
+function removePair(i){galleryArr.splice(i,1);renderGallery();}
 
-function collect(){
-  function lang(l){return {hero_badge:$("f_"+l+"_badge").value,hero_h1:$("f_"+l+"_h1").value,hero_lead:$("f_"+l+"_lead").value};}
-  return {
-    phoneDisplay:$("f_phone").value.trim(),
-    telegram:$("f_tg").value.trim().replace(/^@/,''),
-    prices:{
-      chip:parseInt($("f_chip").value,10)||0,
-      crackPerCm:parseInt($("f_crack").value,10)||0,
-      stop:parseInt($("f_stop").value,10)||0,
-      mobile:parseInt($("f_mobile").value,10)||0
-    },
-    beforeAfter:{before:baPhotos.before,after:baPhotos.after},
-    texts:{ru:lang("ru"),en:lang("en"),uz:lang("uz")}
-  };
-}
-
-function load(fromLogin){
-  ghApi("GET","content.json","?ref="+BRANCH).then(function(r){
-    if(r.status===401||r.status===403)throw new Error("auth");
-    if(r.status===404){contentSha=null;fill(null);showEditor(true);return null;}
-    if(!r.ok)throw new Error("http "+r.status);
-    return r.json();
-  }).then(function(j){
-    if(!j)return;
-    contentSha=j.sha;
-    var data={};try{data=JSON.parse(b64decode(j.content));}catch(e){}
-    fill(data);
-    showEditor(true);
-  }).catch(function(){
-    if(fromLogin){
-      $("loginMsg").innerHTML='<span class="err">Не получилось войти. Проверьте, что ключ скопирован полностью и имеет доступ Contents: Read and write к репозиторию automasterglass.</span>';
-      localStorage.removeItem(TOKEN_KEY);
-    }else{showEditor(false);}
-  });
-}
-
-/* сжатие изображения через canvas */
 function resizeImage(file,maxW,cb){
   var img=new Image();
   img.onload=function(){
@@ -273,24 +224,75 @@ function resizeImage(file,maxW,cb){
   img.onerror=function(){cb(null);};
   img.src=URL.createObjectURL(file);
 }
-
-function pickPhoto(which,inp){
-  var file=inp.files&&inp.files[0];
-  if(!file)return;
-  var st=$("st_"+which);
-  st.innerHTML='Сжимаем и загружаем… <span class="spin"></span>';
+function pickPhoto(i,which,inp){
+  var file=inp.files&&inp.files[0];if(!file)return;
+  var st=$("ps_"+i+"_"+which);st.innerHTML='Загрузка… <span class="spin"></span>';
   resizeImage(file,1280,function(dataUrl){
     if(!dataUrl){st.innerHTML='<span class="err">Не удалось обработать файл.</span>';return;}
-    setThumb(which,dataUrl);
+    setThumb(i,which,dataUrl);
     var base64=dataUrl.split(",")[1];
-    var path="images/"+which+"-"+Date.now()+".jpg";
-    ghApi("PUT",path,"",{message:"Загрузка фото "+which,content:base64,branch:BRANCH}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
-      if(res.ok){baPhotos[which]=path;st.innerHTML='<span class="ok">✓ Фото загружено. Нажмите «Сохранить» внизу.</span>';}
+    var path="images/"+which+"-"+Date.now()+"-"+i+".jpg";
+    ghApi("PUT",path,"",{message:"Загрузка фото",content:base64,branch:BRANCH}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
+      if(res.ok){if(galleryArr[i])galleryArr[i][which]=path;st.innerHTML='<span class="ok">✓ Загружено. Нажмите «Сохранить».</span>';}
       else{st.innerHTML='<span class="err">Ошибка: '+((res.j&&res.j.message)||"не удалось")+'</span>';}
     }).catch(function(){st.innerHTML='<span class="err">Ошибка сети.</span>';});
   });
 }
 
+/* ---------- контент ---------- */
+function fill(data){
+  data=data||{};
+  var p=data.prices||{}, t=data.texts||{}, baOld=data.beforeAfter||{};
+  $("f_phone").value=data.phoneDisplay||"";
+  $("f_tg").value=data.telegram||"";
+  $("f_chip").value=p.chip!=null?p.chip:"";
+  $("f_crack").value=p.crackPerCm!=null?p.crackPerCm:"";
+  $("f_stop").value=p.stop!=null?p.stop:"";
+  $("f_mobile").value=p.mobile!=null?p.mobile:"";
+  ["ru","en","uz"].forEach(function(l){
+    var x=(t[l])||{};
+    $("f_"+l+"_badge").value=x.hero_badge||"";
+    $("f_"+l+"_h1").value=x.hero_h1||"";
+    $("f_"+l+"_lead").value=x.hero_lead||"";
+  });
+  if(Array.isArray(data.gallery)&&data.gallery.length){galleryArr=data.gallery.map(function(p){return {before:p.before||"",after:p.after||""};});}
+  else if(baOld.before||baOld.after){galleryArr=[{before:baOld.before||"",after:baOld.after||""}];}
+  else{galleryArr=[];}
+  renderGallery();
+}
+function collect(){
+  function lang(l){return {hero_badge:$("f_"+l+"_badge").value,hero_h1:$("f_"+l+"_h1").value,hero_lead:$("f_"+l+"_lead").value};}
+  return {
+    phoneDisplay:$("f_phone").value.trim(),
+    telegram:$("f_tg").value.trim().replace(/^@/,''),
+    prices:{
+      chip:parseInt($("f_chip").value,10)||0,
+      crackPerCm:parseInt($("f_crack").value,10)||0,
+      stop:parseInt($("f_stop").value,10)||0,
+      mobile:parseInt($("f_mobile").value,10)||0
+    },
+    gallery:galleryArr.map(function(p){return {before:p.before||"",after:p.after||""};}),
+    texts:{ru:lang("ru"),en:lang("en"),uz:lang("uz")}
+  };
+}
+function load(fromLogin){
+  ghApi("GET","content.json","?ref="+BRANCH).then(function(r){
+    if(r.status===401||r.status===403)throw new Error("auth");
+    if(r.status===404){contentSha=null;fill(null);showEditor(true);return null;}
+    if(!r.ok)throw new Error("http "+r.status);
+    return r.json();
+  }).then(function(j){
+    if(!j)return;
+    contentSha=j.sha;
+    var data={};try{data=JSON.parse(b64decode(j.content));}catch(e){}
+    fill(data);showEditor(true);
+  }).catch(function(){
+    if(fromLogin){
+      $("loginMsg").innerHTML='<span class="err">Не получилось войти. Проверьте, что ключ скопирован полностью и имеет доступ Contents: Read and write к репозиторию automasterglass.</span>';
+      localStorage.removeItem(TOKEN_KEY);
+    }else{showEditor(false);}
+  });
+}
 function save(){
   var btn=$("saveBtn"),msg=$("msg");
   btn.disabled=true;msg.className="";msg.innerHTML='Сохраняем… <span class="spin"></span>';
@@ -302,7 +304,6 @@ function save(){
     else{msg.className="err";msg.textContent="Ошибка: "+((res.j&&res.j.message)||"не удалось сохранить");}
   }).catch(function(){btn.disabled=false;msg.className="err";msg.textContent="Ошибка сети. Попробуйте ещё раз.";});
 }
-
 function switchLang(l){
   document.querySelectorAll(".tab").forEach(function(t){t.classList.toggle("active",t.dataset.lang===l);});
   document.querySelectorAll(".lang").forEach(function(d){d.classList.toggle("active",d.dataset.lang===l);});
