@@ -7,6 +7,10 @@
     "stop": 180000,
     "mobile": 50000
   },
+  "beforeAfter": {
+    "before": "",
+    "after": ""
+  },
   "texts": {
     "ru": {
       "hero_badge": "Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",

@@ -9,7 +9,7 @@
 :root{--bg:#0b0f17;--card:#121826;--brd:#26304a;--txt:#eaf1ff;--muted:#9fb0cc;--accent:#1e82e5;--ok:#22c55e;--err:#ef4444}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
-.wrap{max-width:760px;margin:0 auto;padding:24px 18px 80px}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 90px}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
 h1{font-size:22px;margin:0}
 .sub{color:var(--muted);font-size:14px;margin:0 0 22px}
@@ -18,7 +18,7 @@ h1{font-size:22px;margin:0}
 .card .hint{color:var(--muted);font-size:13px;margin:0 0 16px}
 label{display:block;font-weight:600;font-size:13.5px;margin:14px 0 6px}
 label:first-of-type{margin-top:0}
-input,textarea{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--brd);background:#0c1119;color:var(--txt);font:inherit;outline:none}
+input[type=text],input[type=number],input[type=password],textarea{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--brd);background:#0c1119;color:var(--txt);font:inherit;outline:none}
 input:focus,textarea:focus{border-color:var(--accent)}
 textarea{resize:vertical;min-height:64px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -42,26 +42,33 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
 .hide{display:none}
 .spin{width:16px;height:16px;border:2px solid #fff6;border-top-color:#fff;border-radius:50%;display:inline-block;animation:s .7s linear infinite;vertical-align:-3px}
 @keyframes s{to{transform:rotate(360deg)}}
-@media(max-width:560px){.row2{grid-template-columns:1fr}}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.photo{border:1px dashed var(--brd);border-radius:12px;padding:14px;text-align:center}
+.photo h3{margin:0 0 10px;font-size:14px}
+.thumb{width:100%;aspect-ratio:16/10;border-radius:9px;background:#0c1119 center/cover no-repeat;border:1px solid var(--brd);display:grid;place-items:center;color:var(--muted);font-size:13px;margin-bottom:10px}
+.filelbl{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:13px;border-radius:9px;padding:9px 14px;cursor:pointer}
+.filelbl input{display:none}
+.pstatus{font-size:12px;color:var(--muted);margin-top:8px;min-height:16px}
+@media(max-width:560px){.row2,.photos{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- ШАГ ВХОДА (токен) -->
+  <!-- ВХОД -->
   <div id="login">
     <h1>Вход в админку</h1>
     <p class="sub">Управление сайтом AutoMasterGlass</p>
     <div class="card">
       <h2>Первый вход — нужен ключ доступа (один раз)</h2>
-      <p class="hint">Ключ создаётся бесплатно на GitHub и сохраняется только в этом браузере. Делается один раз.</p>
+      <p class="hint">Ключ создаётся бесплатно на GitHub и сохраняется только в этом браузере.</p>
       <ol class="steps">
-        <li>Откройте <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">страницу создания ключа</a> (нужно войти в свой GitHub).</li>
-        <li>В поле <b>Token name</b> напишите любое имя, например <code>admin-site</code>.</li>
-        <li><b>Resource owner</b> — выберите свой аккаунт.</li>
+        <li>Откройте <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">страницу создания ключа</a> (войдите в свой GitHub).</li>
+        <li><b>Token name</b> — любое имя, например <code>admin-site</code>.</li>
+        <li><b>Resource owner</b> — ваш аккаунт.</li>
         <li><b>Repository access</b> → <b>Only select repositories</b> → выберите <code>automasterglass</code>.</li>
-        <li><b>Permissions</b> → <b>Repository permissions</b> → найдите <b>Contents</b> → поставьте <b>Read and write</b>.</li>
-        <li>Нажмите <b>Generate token</b>, скопируйте ключ (начинается на <code>github_pat_…</code>) и вставьте ниже.</li>
+        <li><b>Permissions</b> → <b>Repository permissions</b> → <b>Contents</b> → <b>Read and write</b>.</li>
+        <li><b>Generate token</b>, скопируйте ключ (<code>github_pat_…</code>) и вставьте ниже.</li>
       </ol>
       <label>Ключ доступа (token)</label>
       <input id="token" type="password" placeholder="github_pat_..." autocomplete="off">
@@ -87,19 +94,38 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
       <h2>Контакты</h2>
       <p class="hint">Телефон подставится в кнопку звонка, WhatsApp и по всему сайту.</p>
       <div class="row2">
-        <div><label>Телефон</label><input id="f_phone" placeholder="+998 91 795 00 63"></div>
-        <div><label>Telegram (имя без @)</label><input id="f_tg" placeholder="AMG_AutoMasterGlass"></div>
+        <div><label>Телефон</label><input type="text" id="f_phone" placeholder="+998 91 795 00 63"></div>
+        <div><label>Telegram (имя без @)</label><input type="text" id="f_tg" placeholder="AMG_AutoMasterGlass"></div>
       </div>
     </div>
 
     <div class="card">
       <h2>Цены (в сумах, только числа)</h2>
-      <p class="hint">Эти числа автоматически попадают и в карточки услуг, и в калькулятор — на всех языках.</p>
+      <p class="hint">Эти числа автоматически попадают в карточки услуг и в калькулятор — на всех языках.</p>
       <div class="row2">
-        <div><label>Ремонт скола — от</label><input id="f_chip" type="number" inputmode="numeric"></div>
-        <div><label>Ремонт трещины — за 1 см</label><input id="f_crack" type="number" inputmode="numeric"></div>
-        <div><label>Остановка трещины</label><input id="f_stop" type="number" inputmode="numeric"></div>
-        <div><label>Доплата за выезд</label><input id="f_mobile" type="number" inputmode="numeric"></div>
+        <div><label>Ремонт скола — от</label><input type="number" id="f_chip" inputmode="numeric"></div>
+        <div><label>Ремонт трещины — за 1 см</label><input type="number" id="f_crack" inputmode="numeric"></div>
+        <div><label>Остановка трещины</label><input type="number" id="f_stop" inputmode="numeric"></div>
+        <div><label>Доплата за выезд</label><input type="number" id="f_mobile" inputmode="numeric"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Фото «До / После»</h2>
+      <p class="hint">Загрузите два фото одного и того же стекла: «До» — со сколом/трещиной, «После» — после ремонта. Фото автоматически сожмётся. После загрузки нажмите «Сохранить» внизу.</p>
+      <div class="photos">
+        <div class="photo">
+          <h3>ДО (повреждённое)</h3>
+          <div class="thumb" id="thumb_before">нет фото</div>
+          <label class="filelbl">Выбрать фото<input type="file" accept="image/*" onchange="pickPhoto('before',this)"></label>
+          <div class="pstatus" id="st_before"></div>
+        </div>
+        <div class="photo">
+          <h3>ПОСЛЕ (отремонтированное)</h3>
+          <div class="thumb" id="thumb_after">нет фото</div>
+          <label class="filelbl">Выбрать фото<input type="file" accept="image/*" onchange="pickPhoto('after',this)"></label>
+          <div class="pstatus" id="st_after"></div>
+        </div>
       </div>
     </div>
 
@@ -112,17 +138,17 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
         <div class="tab" data-lang="uz" onclick="switchLang('uz')">O‘zbekcha</div>
       </div>
       <div class="lang active" data-lang="ru">
-        <label>Строка над заголовком (часы работы)</label><input id="f_ru_badge">
+        <label>Строка над заголовком (часы работы)</label><input type="text" id="f_ru_badge">
         <label>Главный заголовок</label><textarea id="f_ru_h1"></textarea>
         <label>Подзаголовок</label><textarea id="f_ru_lead"></textarea>
       </div>
       <div class="lang" data-lang="en">
-        <label>Top line (working hours)</label><input id="f_en_badge">
+        <label>Top line (working hours)</label><input type="text" id="f_en_badge">
         <label>Main heading</label><textarea id="f_en_h1"></textarea>
         <label>Subheading</label><textarea id="f_en_lead"></textarea>
       </div>
       <div class="lang" data-lang="uz">
-        <label>Sarlavha ustidagi qator (ish vaqti)</label><input id="f_uz_badge">
+        <label>Sarlavha ustidagi qator (ish vaqti)</label><input type="text" id="f_uz_badge">
         <label>Asosiy sarlavha</label><textarea id="f_uz_h1"></textarea>
         <label>Quyi sarlavha</label><textarea id="f_uz_lead"></textarea>
       </div>
@@ -138,17 +164,18 @@ code{background:#0c1119;border:1px solid var(--brd);border-radius:6px;padding:1p
 </div>
 
 <script>
-var OWNER="lolznubolz", REPO="automasterglass", BRANCH="main", FILE="content.json";
+var OWNER="lolznubolz", REPO="automasterglass", BRANCH="main";
 var TOKEN_KEY="amg_gh_token";
-var sha=null;
+var contentSha=null;
+var baPhotos={before:"",after:""};
 
 function token(){return localStorage.getItem(TOKEN_KEY)||"";}
-function b64decode(s){return decodeURIComponent(Array.prototype.map.call(atob(s.replace(/\s/g,'')),function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)}).join(''))}
-function b64encode(s){return btoa(unescape(encodeURIComponent(s)))}
-function $(id){return document.getElementById(id)}
+function $(id){return document.getElementById(id);}
+function b64decode(s){return decodeURIComponent(Array.prototype.map.call(atob(s.replace(/\s/g,'')),function(c){return '%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)}).join(''));}
+function b64encode(s){return btoa(unescape(encodeURIComponent(s)));}
 
-function api(method,extra,body){
-  return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+FILE+(extra||""),{
+function ghApi(method,path,extra,body){
+  return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path+(extra||""),{
     method:method,
     headers:{"Authorization":"Bearer "+token(),"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"},
     body:body?JSON.stringify(body):undefined
@@ -171,9 +198,15 @@ function showEditor(on){
   $("openSite").href="https://"+location.host+"/";
 }
 
+function setThumb(which,url){
+  var t=$("thumb_"+which);
+  if(url){t.style.backgroundImage='url("'+url+'")';t.textContent='';}
+  else{t.style.backgroundImage='';t.textContent='нет фото';}
+}
+
 function fill(data){
   data=data||{};
-  var p=data.prices||{}, t=data.texts||{ru:{},en:{},uz:{}};
+  var p=data.prices||{}, t=data.texts||{}, ba=data.beforeAfter||{};
   $("f_phone").value=data.phoneDisplay||"";
   $("f_tg").value=data.telegram||"";
   $("f_chip").value=p.chip!=null?p.chip:"";
@@ -181,11 +214,14 @@ function fill(data){
   $("f_stop").value=p.stop!=null?p.stop:"";
   $("f_mobile").value=p.mobile!=null?p.mobile:"";
   ["ru","en","uz"].forEach(function(l){
-    var x=t[l]||{};
+    var x=(t[l])||{};
     $("f_"+l+"_badge").value=x.hero_badge||"";
     $("f_"+l+"_h1").value=x.hero_h1||"";
     $("f_"+l+"_lead").value=x.hero_lead||"";
   });
+  baPhotos={before:ba.before||"",after:ba.after||""};
+  setThumb("before",baPhotos.before?("/"+baPhotos.before):"");
+  setThumb("after",baPhotos.after?("/"+baPhotos.after):"");
 }
 
 function collect(){
@@ -199,46 +235,71 @@ function collect(){
       stop:parseInt($("f_stop").value,10)||0,
       mobile:parseInt($("f_mobile").value,10)||0
     },
+    beforeAfter:{before:baPhotos.before,after:baPhotos.after},
     texts:{ru:lang("ru"),en:lang("en"),uz:lang("uz")}
   };
 }
 
 function load(fromLogin){
-  api("GET","?ref="+BRANCH).then(function(r){
-    if(r.status===401||r.status===403){throw new Error("auth");}
-    if(r.status===404){ sha=null; fill(null); showEditor(true); return null; }
-    if(!r.ok){throw new Error("http "+r.status);}
+  ghApi("GET","content.json","?ref="+BRANCH).then(function(r){
+    if(r.status===401||r.status===403)throw new Error("auth");
+    if(r.status===404){contentSha=null;fill(null);showEditor(true);return null;}
+    if(!r.ok)throw new Error("http "+r.status);
     return r.json();
   }).then(function(j){
-    if(!j) return;
-    sha=j.sha;
-    var data={};
-    try{data=JSON.parse(b64decode(j.content));}catch(e){}
+    if(!j)return;
+    contentSha=j.sha;
+    var data={};try{data=JSON.parse(b64decode(j.content));}catch(e){}
     fill(data);
     showEditor(true);
-  }).catch(function(e){
+  }).catch(function(){
     if(fromLogin){
       $("loginMsg").innerHTML='<span class="err">Не получилось войти. Проверьте, что ключ скопирован полностью и имеет доступ Contents: Read and write к репозиторию automasterglass.</span>';
       localStorage.removeItem(TOKEN_KEY);
-    }else{
-      showEditor(false);
-    }
+    }else{showEditor(false);}
+  });
+}
+
+/* сжатие изображения через canvas */
+function resizeImage(file,maxW,cb){
+  var img=new Image();
+  img.onload=function(){
+    var scale=Math.min(1,maxW/img.width);
+    var w=Math.round(img.width*scale),h=Math.round(img.height*scale);
+    var c=document.createElement("canvas");c.width=w;c.height=h;
+    c.getContext("2d").drawImage(img,0,0,w,h);
+    cb(c.toDataURL("image/jpeg",0.82));
+  };
+  img.onerror=function(){cb(null);};
+  img.src=URL.createObjectURL(file);
+}
+
+function pickPhoto(which,inp){
+  var file=inp.files&&inp.files[0];
+  if(!file)return;
+  var st=$("st_"+which);
+  st.innerHTML='Сжимаем и загружаем… <span class="spin"></span>';
+  resizeImage(file,1280,function(dataUrl){
+    if(!dataUrl){st.innerHTML='<span class="err">Не удалось обработать файл.</span>';return;}
+    setThumb(which,dataUrl);
+    var base64=dataUrl.split(",")[1];
+    var path="images/"+which+"-"+Date.now()+".jpg";
+    ghApi("PUT",path,"",{message:"Загрузка фото "+which,content:base64,branch:BRANCH}).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
+      if(res.ok){baPhotos[which]=path;st.innerHTML='<span class="ok">✓ Фото загружено. Нажмите «Сохранить» внизу.</span>';}
+      else{st.innerHTML='<span class="err">Ошибка: '+((res.j&&res.j.message)||"не удалось")+'</span>';}
+    }).catch(function(){st.innerHTML='<span class="err">Ошибка сети.</span>';});
   });
 }
 
 function save(){
-  var btn=$("saveBtn"), msg=$("msg");
-  btn.disabled=true; msg.className=""; msg.innerHTML='Сохраняем… <span class="spin"></span>';
+  var btn=$("saveBtn"),msg=$("msg");
+  btn.disabled=true;msg.className="";msg.innerHTML='Сохраняем… <span class="spin"></span>';
   var body={message:"Обновление контента через админку",content:b64encode(JSON.stringify(collect(),null,2)+"\n"),branch:BRANCH};
-  if(sha)body.sha=sha;
-  api("PUT","",body).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}});}).then(function(res){
+  if(contentSha)body.sha=contentSha;
+  ghApi("PUT","content.json","",body).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(res){
     btn.disabled=false;
-    if(res.ok){
-      sha=res.j.content&&res.j.content.sha?res.j.content.sha:sha;
-      msg.className="ok"; msg.textContent="✓ Сохранено! Сайт обновится за ~1 минуту.";
-    }else{
-      msg.className="err"; msg.textContent="Ошибка: "+((res.j&&res.j.message)||"не удалось сохранить");
-    }
+    if(res.ok){contentSha=(res.j.content&&res.j.content.sha)?res.j.content.sha:contentSha;msg.className="ok";msg.textContent="✓ Сохранено! Сайт обновится за ~1 минуту.";}
+    else{msg.className="err";msg.textContent="Ошибка: "+((res.j&&res.j.message)||"не удалось сохранить");}
   }).catch(function(){btn.disabled=false;msg.className="err";msg.textContent="Ошибка сети. Попробуйте ещё раз.";});
 }
 
@@ -247,7 +308,6 @@ function switchLang(l){
   document.querySelectorAll(".lang").forEach(function(d){d.classList.toggle("active",d.dataset.lang===l);});
 }
 
-/* старт */
 if(token()){load(false);}else{showEditor(false);}
 </script>
 </body>
