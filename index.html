@@ -367,7 +367,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
           </svg>
         </div>
         <div class="row"><span data-i18n="hc_1">Диагностика</span><b style="color:var(--ok)" data-i18n="hc_free">Бесплатно</b></div>
-        <div class="row"><span data-i18n="hc_2">Ремонт скола</span><b>от 100 000</b></div>
+        <div class="row"><span data-i18n="hc_2">Ремонт скола</span><b class="js-chipprice">от 100 000</b></div>
         <div class="row"><span data-i18n="hc_3">Гарантия</span><b>6 мес</b></div>
         <div class="row"><span data-i18n="hc_4">Выезд мастера</span><b style="color:var(--accent)" data-i18n="hc_avail">Доступен</b></div>
       </div>
@@ -542,7 +542,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
         <h2 data-i18n="bk_h">Запишитесь на ремонт за 30 секунд</h2>
         <p data-i18n="bk_p">Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.</p>
         <div class="hero-trust" style="margin-top:24px">
-          <div><b style="color:#fff">+998 91 795 00 63</b><span style="color:#ffffffcc" data-i18n="bk_phone">Пн–Вс 10:00–22:00</span></div>
+          <div><b class="js-phone" style="color:#fff">+998 91 795 00 63</b><span style="color:#ffffffcc" data-i18n="bk_phone">Пн–Вс 10:00–22:00</span></div>
         </div>
       </div>
       <form class="form" id="bookForm" onsubmit="return submitForm(event)">
@@ -576,7 +576,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
     </div>
     <div>
       <h5 data-i18n="ft_contacts">Контакты</h5>
-      <a href="tel:+998917950063">+998 91 795 00 63</a>
+      <a href="tel:+998917950063"><span class="js-phone">+998 91 795 00 63</span></a>
       <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener">Telegram</a>
       <a href="https://wa.me/998917950063" target="_blank" rel="noopener">WhatsApp</a>
       <a href="#" data-i18n="ft_maps">Яндекс.Карты: AutoMasterGlass</a>
@@ -700,6 +700,35 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* year */
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---------- editable content (управляется через /admin.html) ---------- */
+function fmtNum(n){return Number(n).toLocaleString('ru-RU');}
+function applyContent(d){
+  try{
+    if(!d) return;
+    if(d.prices){
+      var p=d.prices;
+      I18N.ru.sv1_p='от '+fmtNum(p.chip)+' сум'; I18N.ru.sv2_p=fmtNum(p.crackPerCm)+' сум / см'; I18N.ru.sv3_p=fmtNum(p.stop)+' сум'; I18N.ru.cl_mobile='Выезд (+'+fmtNum(p.mobile)+')';
+      I18N.en.sv1_p='from '+fmtNum(p.chip)+' UZS'; I18N.en.sv2_p=fmtNum(p.crackPerCm)+' UZS / cm'; I18N.en.sv3_p=fmtNum(p.stop)+' UZS'; I18N.en.cl_mobile='Mobile (+'+fmtNum(p.mobile)+')';
+      I18N.uz.sv1_p=fmtNum(p.chip)+' so‘m dan'; I18N.uz.sv2_p=fmtNum(p.crackPerCm)+' so‘m / sm'; I18N.uz.sv3_p=fmtNum(p.stop)+' so‘m'; I18N.uz.cl_mobile='Joyiga (+'+fmtNum(p.mobile)+')';
+      var o;
+      if(o=cType.querySelector('.opt[data-val=chip]'))o.dataset.base=p.chip;
+      if(o=cType.querySelector('.opt[data-val=crack]'))o.dataset.perlen=p.crackPerCm;
+      if(o=cType.querySelector('.opt[data-val=stop]'))o.dataset.base=p.stop;
+      if(o=cPlace.querySelector('.opt[data-val=mobile]'))o.dataset.add=p.mobile;
+      document.querySelectorAll('.js-chipprice').forEach(function(e){e.textContent='от '+fmtNum(p.chip);});
+    }
+    if(d.texts){['ru','en','uz'].forEach(function(l){if(d.texts[l])Object.assign(I18N[l],d.texts[l]);});}
+    if(d.phoneDisplay){
+      var digits=(d.phoneDisplay.match(/\d/g)||[]).join('');
+      document.querySelectorAll('.js-phone').forEach(function(e){e.textContent=d.phoneDisplay;});
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.href='tel:+'+digits;});
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.href='https://wa.me/'+digits;});
+    }
+    if(d.telegram){document.querySelectorAll('a[href*="t.me"]').forEach(function(a){a.href='https://t.me/'+d.telegram;});}
+  }catch(e){console.warn('content load',e);}
+}
+fetch('content.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(d){applyContent(d);applyLang(curLang);}).catch(function(){applyLang(curLang);});
 </script>
 </body>
 </html>
