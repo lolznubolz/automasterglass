@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AutoMasterGlass — Ремонт сколов и трещин лобового стекла с гарантией</title>
 <meta name="description" content="Профессиональный ремонт сколов и трещин лобового стекла. Выезд мастера, прозрачные цены, гарантия до 6 месяцев, полимеры из США. Онлайн-запись за 30 секунд.">
-<meta name="keywords" content="ремонт лобового стекла, ремонт скола, ремонт трещины, автостекло, выезд мастера, рекалибровка ADAS">
+<meta name="keywords" content="ремонт лобового стекла, ремонт скола, ремонт трещины, автостекло, выезд мастера, выезд по городу">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://automasterglass.uz/">
 
@@ -135,7 +135,7 @@ section.block{padding:74px 0}
 .center{text-align:center;margin:0 auto}
 
 /* services */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:42px}
 .card{background:var(--card);border:1px solid var(--card-brd);border-radius:20px;padding:28px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
 .card:hover{transform:translateY(-6px);border-color:var(--accent)}
 .card .ico{width:54px;height:54px;border-radius:14px;background:var(--accent-grad);display:grid;place-items:center;font-size:26px;margin-bottom:18px}
@@ -383,7 +383,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
   <div class="wrap">
     <div class="reveal center" style="text-align:center">
       <div class="eyebrow" data-i18n="sv_eye">Наши услуги</div>
-      <h2 class="sec-title" data-i18n="sv_title">Три способа спасти ваше стекло</h2>
+      <h2 class="sec-title" data-i18n="sv_title">Услуги и прозрачные цены</h2>
       <p class="sec-sub center" data-i18n="sv_sub">Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».</p>
     </div>
     <div class="cards">
@@ -408,46 +408,43 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
         <div class="price" data-i18n="sv3_p">180 000 сум</div>
         <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
       </div>
+      <div class="card reveal">
+        <div class="ico">🚗</div>
+        <h3 data-i18n="sv4_t">Выезд мастера</h3>
+        <p data-i18n="sv4_d">Приедем к вам — домой, в офис или на парковку. Отремонтируем стекло на месте.</p>
+        <div class="price" data-i18n="sv4_p">50 000 сум</div>
+        <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- calculator -->
+<!-- цена -->
 <section class="block" id="calc">
   <div class="wrap">
     <div class="reveal center" style="text-align:center">
-      <div class="eyebrow" data-i18n="cl_eye">Калькулятор</div>
-      <h2 class="sec-title" data-i18n="cl_title">Узнайте цену за 10 секунд</h2>
-      <p class="sec-sub center" data-i18n="cl_sub">Предварительный расчёт. Точную стоимость подтвердит мастер после бесплатной диагностики.</p>
+      <div class="eyebrow" data-i18n="pr_eye">Стоимость</div>
+      <h2 class="sec-title" data-i18n="pr_title">Как узнать цену</h2>
+      <p class="sec-sub center" data-i18n="pr_sub">Точную стоимость назовём после оценки повреждения — быстро и бесплатно. Выберите удобный способ:</p>
     </div>
-    <div class="calc reveal">
-      <div>
-        <label data-i18n="cl_type">Тип повреждения</label>
-        <div class="opts" id="cType">
-          <div class="opt active" data-val="chip" data-base="100000" data-i18n="cl_chip">Скол</div>
-          <div class="opt" data-val="crack" data-base="0" data-perlen="12000" data-i18n="cl_crack">Трещина</div>
-          <div class="opt" data-val="stop" data-base="180000" data-i18n="cl_stop">Остановка</div>
-        </div>
-
-        <label id="lenLabel" style="display:none">
-          <span data-i18n="cl_len">Длина трещины</span>: <span class="range-val"><span id="lenVal">10</span> см</span>
-        </label>
-        <input type="range" id="cLen" min="1" max="40" value="10" style="display:none">
-
-        <label data-i18n="cl_count">Количество повреждений: <span class="range-val" id="cntVal">1</span></label>
-        <input type="range" id="cCount" min="1" max="6" value="1">
-
-        <label data-i18n="cl_place">Где ремонтируем</label>
-        <div class="opts" id="cPlace">
-          <div class="opt active" data-val="shop" data-add="0" data-i18n="cl_shop">В сервисе</div>
-          <div class="opt" data-val="mobile" data-add="50000" data-i18n="cl_mobile">Выезд (+50 000)</div>
-        </div>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card reveal">
+        <div class="ico">📞</div>
+        <h3 data-i18n="pr1_t">Позвоните нам</h3>
+        <p data-i18n="pr1_d">Опишите повреждение — назовём примерную цену прямо по телефону.</p>
+        <a href="tel:+998917950063" class="btn btn-primary js-phone" style="width:100%">+998 91 795 00 63</a>
       </div>
-      <div class="calc-out">
-        <div class="lbl" data-i18n="cl_result">Примерная стоимость</div>
-        <div class="sum"><span id="calcSum">100 000</span></div>
-        <div class="note" data-i18n="cl_currency">сум</div>
-        <a href="#book" class="btn" data-i18n="cl_book">Записаться по этой цене</a>
+      <div class="card reveal">
+        <div class="ico">💬</div>
+        <h3 data-i18n="pr2_t">Отправьте фото в Telegram</h3>
+        <p data-i18n="pr2_d">Пришлите фото скола или трещины в Telegram — оценим за пару минут.</p>
+        <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%" data-i18n="pr2_b">Написать в Telegram</a>
+      </div>
+      <div class="card reveal">
+        <div class="ico">📍</div>
+        <h3 data-i18n="pr3_t">Приезжайте к нам</h3>
+        <p data-i18n="pr3_d">Бесплатная диагностика на месте — сразу назовём точную стоимость.</p>
+        <a href="#book" class="btn btn-ghost" style="width:100%" data-i18n="pr3_b">Оставить заявку</a>
       </div>
     </div>
   </div>
@@ -465,9 +462,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <div class="feat-item reveal"><div class="fi">🇺🇸</div><div><h4 data-i18n="wh2_t">Материалы из США</h4><p data-i18n="wh2_d">Используем только качественные сертифицированные полимеры.</p></div></div>
       <div class="feat-item reveal"><div class="fi">🛡️</div><div><h4 data-i18n="wh3_t">Гарантия до 6 месяцев</h4><p data-i18n="wh3_d">На сколы и на трещины до 15 см. Если что — переделаем.</p></div></div>
       <div class="feat-item reveal"><div class="fi">⏱️</div><div><h4 data-i18n="wh4_t">Быстро, без потери качества</h4><p data-i18n="wh4_d">Средний ремонт 30–60 минут — и вы снова за рулём.</p></div></div>
-      <div class="feat-item reveal"><div class="fi">🎯</div><div><h4 data-i18n="wh5_t">Узкая специализация</h4><p data-i18n="wh5_d">Занимаемся только автостёклами — отсюда лучшее качество.</p></div></div>
-      <div class="feat-item reveal"><div class="fi">📷</div><div><h4 data-i18n="wh6_t">Рекалибровка ADAS</h4><p data-i18n="wh6_d">Настраиваем камеры и датчики систем помощи водителю после работ.</p></div></div>
-    </div>
+      <div class="feat-item reveal"><div class="fi">🎯</div><div><h4 data-i18n="wh5_t">Узкая специализация</h4><p data-i18n="wh5_d">Занимаемся только автостёклами — отсюда лучшее качество.</p></div></div>    </div>
   </div>
 </section>
 
@@ -536,9 +531,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <details class="q reveal"><summary data-i18n="fq1_q">Можно ли отремонтировать скол, а не менять стекло?</summary><div class="a" data-i18n="fq1_a">Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.</div></details>
       <details class="q reveal"><summary data-i18n="fq2_q">Сколько по времени занимает ремонт?</summary><div class="a" data-i18n="fq2_a">В среднем 30–60 минут в зависимости от типа и количества повреждений.</div></details>
       <details class="q reveal"><summary data-i18n="fq3_q">Какие повреждения уже нельзя ремонтировать?</summary><div class="a" data-i18n="fq3_a">Трещины длиннее 30–40 см, повреждения прямо в зоне обзора водителя или с раскрошенным стеклом обычно требуют замены. Точно скажем после бесплатной диагностики.</div></details>
-      <details class="q reveal"><summary data-i18n="fq4_q">Вы выезжаете на место?</summary><div class="a" data-i18n="fq4_a">Да, мастер может приехать к вам — выберите опцию «Выезд» в калькуляторе или укажите в заявке.</div></details>
-      <details class="q reveal"><summary data-i18n="fq5_q">Нужно ли настраивать камеры после ремонта?</summary><div class="a" data-i18n="fq5_a">Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.</div></details>
-    </div>
+      <details class="q reveal"><summary data-i18n="fq4_q">Вы выезжаете на место?</summary><div class="a" data-i18n="fq4_a">Да, мастер может приехать к вам — выберите опцию «Выезд» в калькуляторе или укажите в заявке.</div></details>    </div>
   </div>
 </section>
 
@@ -606,42 +599,42 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
 <script>
 /* ---------- i18n ---------- */
 const I18N={
- ru:{nav_services:"Услуги",nav_calc:"Калькулятор",nav_why:"Преимущества",nav_reviews:"Отзывы",nav_faq:"Вопросы",nav_book:"Записаться",
-  hero_badge:"Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",hero_h1:'Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span>',hero_lead:"Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%.",hero_cta1:"Записаться онлайн",hero_cta2:"Рассчитать цену",hero_t1:"327 отзывов",hero_t2:"гарантия",hero_t3:"средний ремонт",hero_t4:"авто отремонтировано",
+ ru:{nav_services:"Услуги",nav_calc:"Стоимость",nav_why:"Преимущества",nav_reviews:"Отзывы",nav_faq:"Вопросы",nav_book:"Записаться",
+  hero_badge:"Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",hero_h1:'Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span>',hero_lead:"Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%.",hero_cta1:"Записаться онлайн",hero_cta2:"Узнать стоимость",hero_t1:"327 отзывов",hero_t2:"гарантия",hero_t3:"средний ремонт",hero_t4:"авто отремонтировано",
   hc_1:"Диагностика",hc_free:"Бесплатно",hc_2:"Ремонт скола",hc_3:"Гарантия",hc_4:"Выезд мастера",hc_avail:"Доступен",
-  sv_eye:"Наши услуги",sv_title:"Три способа спасти ваше стекло",sv_sub:"Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».",sv1_t:"Ремонт скола",sv1_d:"Скол засверливается и заливается полимерным составом. Становится незаметным на 60–95%.",sv1_p:"от 100 000 сум",sv2_t:"Ремонт трещины",sv2_d:"Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.",sv2_p:"12 000 сум / см",sv3_t:"Остановка трещины",sv3_d:"Засверливание для остановки роста + заполнение полимером на 2–3 см.",sv3_p:"180 000 сум",sv_btn:"Записаться",
-  cl_eye:"Калькулятор",cl_title:"Узнайте цену за 10 секунд",cl_sub:"Предварительный расчёт. Точную стоимость подтвердит мастер после бесплатной диагностики.",cl_type:"Тип повреждения",cl_chip:"Скол",cl_crack:"Трещина",cl_stop:"Остановка",cl_len:"Длина трещины",cl_count:"Количество повреждений:",cl_place:"Где ремонтируем",cl_shop:"В сервисе",cl_mobile:"Выезд (+50 000)",cl_result:"Примерная стоимость",cl_currency:"сум",cl_book:"Записаться по этой цене",
+  sv_eye:"Наши услуги",sv_title:"Услуги и прозрачные цены",sv_sub:"Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».",sv1_t:"Ремонт скола",sv1_d:"Скол засверливается и заливается полимерным составом. Становится незаметным на 60–95%.",sv1_p:"от 100 000 сум",sv2_t:"Ремонт трещины",sv2_d:"Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.",sv2_p:"12 000 сум / см",sv3_t:"Остановка трещины",sv3_d:"Засверливание для остановки роста + заполнение полимером на 2–3 см.",sv3_p:"180 000 сум",sv4_t:"Выезд мастера",sv4_d:"Приедем к вам — домой, в офис или на парковку. Отремонтируем стекло на месте.",sv4_p:"50 000 сум",sv_btn:"Записаться",
+  pr_eye:"Стоимость",pr_title:"Как узнать цену",pr_sub:"Точную стоимость назовём после оценки повреждения — быстро и бесплатно. Выберите удобный способ:",pr1_t:"Позвоните нам",pr1_d:"Опишите повреждение — назовём примерную цену прямо по телефону.",pr2_t:"Отправьте фото в Telegram",pr2_d:"Пришлите фото скола или трещины в Telegram — оценим за пару минут.",pr2_b:"Написать в Telegram",pr3_t:"Приезжайте к нам",pr3_d:"Бесплатная диагностика на месте — сразу назовём точную стоимость.",pr3_b:"Оставить заявку",
   wh_eye:"Почему мы",wh_title:"Преимущества, которые видно в работе",wh1_t:"Честная цена сразу",wh1_d:"Называем реальную стоимость по телефону, а не другую «по факту».",wh2_t:"Материалы из США",wh2_d:"Используем только качественные сертифицированные полимеры.",wh3_t:"Гарантия до 6 месяцев",wh3_d:"На сколы и на трещины до 15 см. Если что — переделаем.",wh4_t:"Быстро, без потери качества",wh4_d:"Средний ремонт 30–60 минут — и вы снова за рулём.",wh5_t:"Узкая специализация",wh5_d:"Занимаемся только автостёклами — отсюда лучшее качество.",wh6_t:"Рекалибровка ADAS",wh6_d:"Настраиваем камеры и датчики систем помощи водителю после работ.",
   ba_eye:"Результат",ba_title:"До и после ремонта",ba_sub:"Потяните ползунок, чтобы увидеть разницу.",ba_before:"Скол / трещина",ba_after:"Чистое стекло",ba_tag_b:"ДО",ba_tag_a:"ПОСЛЕ",
   st_eye:"Как мы работаем",st_title:"4 простых шага",st1_t:"Заявка",st1_d:"Оставляете заявку онлайн или в Telegram/WhatsApp.",st2_t:"Диагностика",st2_d:"Бесплатно оцениваем повреждение и называем точную цену.",st3_t:"Ремонт",st3_d:"Восстанавливаем стекло за 30–60 минут полимером.",st4_t:"Гарантия",st4_d:"Выдаём гарантию до 6 месяцев на работу.",
   rv_eye:"Отзывы",rv_title:"Нам доверяют 5000+ водителей",rv1:"«Скол на пол-капота был — после ремонта еле нашёл место. Цену назвали сразу, без накруток.»",rv1_c:"Toyota Camry",rv2:"«Приехали на выезд прямо к офису. Трещину остановили за 40 минут. Рекомендую!»",rv2_c:"Kia K5",rv3:"«Боялся, что разведут. В итоге всё честно, гарантию дали письменно. Стекло как новое.»",rv3_c:"Chevrolet Malibu",
-  fq_eye:"FAQ",fq_title:"Частые вопросы",fq1_q:"Можно ли отремонтировать скол, а не менять стекло?",fq1_a:"Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.",fq2_q:"Сколько по времени занимает ремонт?",fq2_a:"В среднем 30–60 минут в зависимости от типа и количества повреждений.",fq3_q:"Какие повреждения уже нельзя ремонтировать?",fq3_a:"Трещины длиннее 30–40 см, повреждения прямо в зоне обзора водителя или с раскрошенным стеклом обычно требуют замены. Точно скажем после бесплатной диагностики.",fq4_q:"Вы выезжаете на место?",fq4_a:"Да, мастер может приехать к вам — выберите опцию «Выезд» в калькуляторе или укажите в заявке.",fq5_q:"Нужно ли настраивать камеры после ремонта?",fq5_a:"Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.",
+  fq_eye:"FAQ",fq_title:"Частые вопросы",fq1_q:"Можно ли отремонтировать скол, а не менять стекло?",fq1_a:"Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.",fq2_q:"Сколько по времени занимает ремонт?",fq2_a:"В среднем 30–60 минут в зависимости от типа и количества повреждений.",fq3_q:"Какие повреждения уже нельзя ремонтировать?",fq3_a:"Чтобы узнать точно, отправьте фото повреждения в Telegram или приезжайте к нам — оценим бесплатно. Обычно не подлежат ремонту трещины длиннее 30–40 см, повреждения в зоне обзора водителя или с раскрошенным стеклом.",fq4_q:"Вы выезжаете на место?",fq4_a:"Да, мастер может приехать к вам — укажите это в заявке или сообщите при звонке.",fq5_q:"Нужно ли настраивать камеры после ремонта?",fq5_a:"Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.",
   bk_h:"Запишитесь на ремонт за 30 секунд",bk_p:"Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.",bk_phone:"Пн–Вс 10:00–22:00",bk_name:"Ваше имя",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Ремонт скола",bk_o2:"Ремонт трещины",bk_o3:"Остановка трещины",bk_o4:"Не знаю — нужна диагностика",bk_send:"Отправить заявку",bk_privacy:"Нажимая кнопку, вы соглашаетесь на обработку данных",bk_ok:"Спасибо! Заявка принята — перезвоним в течение 15 минут.",
   ft_about:"Профессиональный ремонт сколов и трещин лобового стекла. Прозрачные цены, материалы из США, гарантия до 6 месяцев.",ft_nav:"Навигация",ft_contacts:"Контакты",ft_maps:"Яндекс.Карты: AutoMasterGlass",ft_rights:"Все права защищены"},
 
- en:{nav_services:"Services",nav_calc:"Calculator",nav_why:"Advantages",nav_reviews:"Reviews",nav_faq:"FAQ",nav_book:"Book now",
-  hero_badge:"Open Mon–Sun, 10:00–22:00 · Mobile service",hero_h1:'Windshield chip & crack repair <span class="accent">with warranty</span>',hero_lead:"We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 60–95% invisible.",hero_cta1:"Book online",hero_cta2:"Calculate price",hero_t1:"327 reviews",hero_t2:"warranty",hero_t3:"average repair",hero_t4:"cars repaired",
+ en:{nav_services:"Services",nav_calc:"Price",nav_why:"Advantages",nav_reviews:"Reviews",nav_faq:"FAQ",nav_book:"Book now",
+  hero_badge:"Open Mon–Sun, 10:00–22:00 · Mobile service",hero_h1:'Windshield chip & crack repair <span class="accent">with warranty</span>',hero_lead:"We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 60–95% invisible.",hero_cta1:"Book online",hero_cta2:"Get a price",hero_t1:"327 reviews",hero_t2:"warranty",hero_t3:"average repair",hero_t4:"cars repaired",
   hc_1:"Diagnostics",hc_free:"Free",hc_2:"Chip repair",hc_3:"Warranty",hc_4:"Mobile service",hc_avail:"Available",
-  sv_eye:"Our services",sv_title:"Three ways to save your glass",sv_sub:"Transparent prices we quote upfront — no surprises afterwards.",sv1_t:"Chip repair",sv1_d:"The chip is drilled and filled with resin, becoming 60–95% invisible.",sv1_p:"from 100,000 UZS",sv2_t:"Crack repair",sv2_d:"Stopping and filling the crack with resin — 60–70% less visible.",sv2_p:"12,000 UZS / cm",sv3_t:"Crack stop",sv3_d:"Drilling to stop the spread + resin fill for 2–3 cm.",sv3_p:"180,000 UZS",sv_btn:"Book",
-  cl_eye:"Calculator",cl_title:"Get a price in 10 seconds",cl_sub:"Preliminary estimate. Final price confirmed by the master after free diagnostics.",cl_type:"Damage type",cl_chip:"Chip",cl_crack:"Crack",cl_stop:"Stop",cl_len:"Crack length",cl_count:"Number of damages:",cl_place:"Where to repair",cl_shop:"In shop",cl_mobile:"Mobile (+50,000)",cl_result:"Estimated price",cl_currency:"UZS",cl_book:"Book at this price",
+  sv_eye:"Our services",sv_title:"Services & transparent prices",sv_sub:"Transparent prices we quote upfront — no surprises afterwards.",sv1_t:"Chip repair",sv1_d:"The chip is drilled and filled with resin, becoming 60–95% invisible.",sv1_p:"from 100,000 UZS",sv2_t:"Crack repair",sv2_d:"Stopping and filling the crack with resin — 60–70% less visible.",sv2_p:"12,000 UZS / cm",sv3_t:"Crack stop",sv3_d:"Drilling to stop the spread + resin fill for 2–3 cm.",sv3_p:"180,000 UZS",sv4_t:"Mobile service",sv4_d:"We come to you — home, office or parking. We repair the glass on the spot.",sv4_p:"from 50,000 UZS",sv_btn:"Book",
+  pr_eye:"Price",pr_title:"How to get a price",pr_sub:"We'll give the exact price after assessing the damage — fast and free. Pick a convenient way:",pr1_t:"Call us",pr1_d:"Describe the damage — we'll give an approximate price right on the phone.",pr2_t:"Send a photo to Telegram",pr2_d:"Send a photo of the chip or crack to Telegram — we'll estimate in a couple of minutes.",pr2_b:"Message on Telegram",pr3_t:"Come to us",pr3_d:"Free on-site diagnostics — we'll name the exact price right away.",pr3_b:"Leave a request",
   wh_eye:"Why us",wh_title:"Advantages you can see in our work",wh1_t:"Honest price upfront",wh1_d:"We quote the real price on the phone, not a different one later.",wh2_t:"US-made materials",wh2_d:"We use only quality certified resins.",wh3_t:"Up to 6 months warranty",wh3_d:"On chips and cracks up to 15 cm. We'll redo it if needed.",wh4_t:"Fast, no quality loss",wh4_d:"Average repair 30–60 min — and you're back on the road.",wh5_t:"Narrow specialization",wh5_d:"We do auto glass only — hence the best quality.",wh6_t:"ADAS recalibration",wh6_d:"We calibrate driver-assist cameras and sensors after the work.",
   ba_eye:"Result",ba_title:"Before & after repair",ba_sub:"Drag the slider to see the difference.",ba_before:"Chip / crack",ba_after:"Clear glass",ba_tag_b:"BEFORE",ba_tag_a:"AFTER",
   st_eye:"How we work",st_title:"4 simple steps",st1_t:"Request",st1_d:"Leave a request online or via Telegram/WhatsApp.",st2_t:"Diagnostics",st2_d:"We assess the damage for free and give an exact price.",st3_t:"Repair",st3_d:"We restore the glass in 30–60 minutes with resin.",st4_t:"Warranty",st4_d:"We provide up to 6 months warranty on the work.",
   rv_eye:"Reviews",rv_title:"Trusted by 5000+ drivers",rv1:"\"Half-palm chip — after the repair I could barely find the spot. Price quoted upfront, no markups.\"",rv1_c:"Toyota Camry",rv2:"\"They came right to my office. Stopped the crack in 40 minutes. Recommend!\"",rv2_c:"Kia K5",rv3:"\"I was afraid of a scam. It was all fair, warranty in writing. Glass like new.\"",rv3_c:"Chevrolet Malibu",
-  fq_eye:"FAQ",fq_title:"Frequently asked",fq1_q:"Can a chip be repaired instead of replacing the glass?",fq1_a:"Yes, in most cases a chip or small crack can be restored with resin — far cheaper than replacement and it keeps your factory glass.",fq2_q:"How long does the repair take?",fq2_a:"On average 30–60 minutes depending on type and number of damages.",fq3_q:"Which damages can't be repaired?",fq3_a:"Cracks longer than 30–40 cm, damage right in the driver's view, or shattered glass usually need replacement. We'll tell you exactly after free diagnostics.",fq4_q:"Do you offer mobile service?",fq4_a:"Yes, a master can come to you — pick the 'Mobile' option in the calculator or note it in your request.",fq5_q:"Do cameras need calibration after repair?",fq5_a:"If your car has driver-assist systems (ADAS) and the work touched the camera area, we'll recalibrate so the sensors work correctly.",
+  fq_eye:"FAQ",fq_title:"Frequently asked",fq1_q:"Can a chip be repaired instead of replacing the glass?",fq1_a:"Yes, in most cases a chip or small crack can be restored with resin — far cheaper than replacement and it keeps your factory glass.",fq2_q:"How long does the repair take?",fq2_a:"On average 30–60 minutes depending on type and number of damages.",fq3_q:"Which damages can't be repaired?",fq3_a:"To find out for sure, send a photo of the damage to Telegram or come to us — we'll assess it for free. Usually cracks longer than 30–40 cm, damage in the driver's view, or shattered glass can't be repaired.",fq4_q:"Do you offer mobile service?",fq4_a:"Yes, a master can come to you — note it in your request or tell us on the phone.",fq5_q:"Do cameras need calibration after repair?",fq5_a:"If your car has driver-assist systems (ADAS) and the work touched the camera area, we'll recalibrate so the sensors work correctly.",
   bk_h:"Book your repair in 30 seconds",bk_p:"Leave your number — we'll call back within 15 minutes, answer your questions and pick a convenient time. Diagnostics are free.",bk_phone:"Mon–Sun 10:00–22:00",bk_name:"Your name",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chip repair",bk_o2:"Crack repair",bk_o3:"Crack stop",bk_o4:"Not sure — need diagnostics",bk_send:"Send request",bk_privacy:"By clicking you agree to data processing",bk_ok:"Thank you! Request received — we'll call within 15 minutes.",
   ft_about:"Professional windshield chip and crack repair. Transparent prices, US-made materials, warranty up to 6 months.",ft_nav:"Navigation",ft_contacts:"Contacts",ft_maps:"Yandex.Maps: AutoMasterGlass",ft_rights:"All rights reserved"},
 
- uz:{nav_services:"Xizmatlar",nav_calc:"Kalkulyator",nav_why:"Afzalliklar",nav_reviews:"Sharhlar",nav_faq:"Savollar",nav_book:"Yozilish",
-  hero_badge:"Du–Yak, 10:00–22:00 · Joyiga chiqamiz",hero_h1:'Old oynadagi chaqmoq va yoriqlarni <span class="accent">kafolat bilan</span> ta\'mirlash',hero_lead:"Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 60–95% ko‘rinmas bo‘ladi.",hero_cta1:"Onlayn yozilish",hero_cta2:"Narxni hisoblash",hero_t1:"327 sharh",hero_t2:"kafolat",hero_t3:"o‘rtacha ta'mir",hero_t4:"avto ta'mirlangan",
+ uz:{nav_services:"Xizmatlar",nav_calc:"Narx",nav_why:"Afzalliklar",nav_reviews:"Sharhlar",nav_faq:"Savollar",nav_book:"Yozilish",
+  hero_badge:"Du–Yak, 10:00–22:00 · Joyiga chiqamiz",hero_h1:'Old oynadagi chaqmoq va yoriqlarni <span class="accent">kafolat bilan</span> ta\'mirlash',hero_lead:"Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 60–95% ko‘rinmas bo‘ladi.",hero_cta1:"Onlayn yozilish",hero_cta2:"Narxni bilish",hero_t1:"327 sharh",hero_t2:"kafolat",hero_t3:"o‘rtacha ta'mir",hero_t4:"avto ta'mirlangan",
   hc_1:"Diagnostika",hc_free:"Bepul",hc_2:"Chaqmoq ta'miri",hc_3:"Kafolat",hc_4:"Joyiga chiqish",hc_avail:"Mavjud",
-  sv_eye:"Xizmatlarimiz",sv_title:"Oynangizni saqlashning 3 usuli",sv_sub:"Darrov aytadigan shaffof narxlar — keyin “amalda” siri yo‘q.",sv1_t:"Chaqmoq ta'miri",sv1_d:"Chaqmoq teshiladi va polimer bilan to‘ldiriladi. 60–95% ko‘rinmas bo‘ladi.",sv1_p:"100 000 so‘mdan",sv2_t:"Yoriq ta'miri",sv2_d:"Yoriqni to‘xtatish va polimer bilan to‘ldirish — 60–70% kamroq ko‘rinadi.",sv2_p:"12 000 so‘m / sm",sv3_t:"Yoriqni to‘xtatish",sv3_d:"O‘sishni to‘xtatish uchun teshish + 2–3 sm polimer.",sv3_p:"180 000 so‘m",sv_btn:"Yozilish",
-  cl_eye:"Kalkulyator",cl_title:"Narxni 10 soniyada biling",cl_sub:"Taxminiy hisob. Aniq narxni usta bepul diagnostikadan keyin aytadi.",cl_type:"Shikast turi",cl_chip:"Chaqmoq",cl_crack:"Yoriq",cl_stop:"To‘xtatish",cl_len:"Yoriq uzunligi",cl_count:"Shikastlar soni:",cl_place:"Qayerda ta'mirlash",cl_shop:"Servisda",cl_mobile:"Joyiga (+50 000)",cl_result:"Taxminiy narx",cl_currency:"so‘m",cl_book:"Shu narxda yozilish",
+  sv_eye:"Xizmatlarimiz",sv_title:"Xizmatlar va shaffof narxlar",sv_sub:"Darrov aytadigan shaffof narxlar — keyin “amalda” siri yo‘q.",sv1_t:"Chaqmoq ta'miri",sv1_d:"Chaqmoq teshiladi va polimer bilan to‘ldiriladi. 60–95% ko‘rinmas bo‘ladi.",sv1_p:"100 000 so‘mdan",sv2_t:"Yoriq ta'miri",sv2_d:"Yoriqni to‘xtatish va polimer bilan to‘ldirish — 60–70% kamroq ko‘rinadi.",sv2_p:"12 000 so‘m / sm",sv3_t:"Yoriqni to‘xtatish",sv3_d:"O‘sishni to‘xtatish uchun teshish + 2–3 sm polimer.",sv3_p:"180 000 so‘m",sv4_t:"Joyiga chiqish",sv4_d:"Sizga kelamiz — uy, ofis yoki to‘xtash joyiga. Oynani joyida ta'mirlaymiz.",sv4_p:"50 000 so‘mdan",sv_btn:"Yozilish",
+  pr_eye:"Narx",pr_title:"Narxni qanday bilish mumkin",pr_sub:"Aniq narxni shikastni ko‘rgach aytamiz — tez va bepul. Qulay usulni tanlang:",pr1_t:"Bizga qo‘ng‘iroq qiling",pr1_d:"Shikastni tasvirlang — taxminiy narxni telefon orqali aytamiz.",pr2_t:"Telegramga foto yuboring",pr2_d:"Chaqmoq yoki yoriq fotosini Telegramga yuboring — bir necha daqiqada baholaymiz.",pr2_b:"Telegramda yozish",pr3_t:"Bizga keling",pr3_d:"Joyida bepul diagnostika — aniq narxni darrov aytamiz.",pr3_b:"Ariza qoldirish",
   wh_eye:"Nega biz",wh_title:"Ishda ko‘rinadigan afzalliklar",wh1_t:"Darrov halol narx",wh1_d:"Telefonda haqiqiy narxni aytamiz, keyin boshqasini emas.",wh2_t:"AQSh materiallari",wh2_d:"Faqat sifatli sertifikatlangan polimerlardan foydalanamiz.",wh3_t:"6 oygacha kafolat",wh3_d:"Chaqmoq va 15 sm gacha yoriqlarga. Kerak bo‘lsa qayta qilamiz.",wh4_t:"Tez, sifatni yo‘qotmasdan",wh4_d:"O‘rtacha ta'mir 30–60 daqiqa — va siz yana yo‘ldasiz.",wh5_t:"Tor mutaxassislik",wh5_d:"Faqat avto oynalar bilan shug‘ullanamiz — eng yaxshi sifat shundan.",wh6_t:"ADAS rekalibratsiyasi",wh6_d:"Ishdan keyin haydovchiga yordam kameralari va datchiklarini sozlaymiz.",
   ba_eye:"Natija",ba_title:"Ta'mirdan oldin va keyin",ba_sub:"Farqni ko‘rish uchun slayderni torting.",ba_before:"Chaqmoq / yoriq",ba_after:"Toza oyna",ba_tag_b:"OLDIN",ba_tag_a:"KEYIN",
   st_eye:"Qanday ishlaymiz",st_title:"4 oddiy qadam",st1_t:"Ariza",st1_d:"Onlayn yoki Telegram/WhatsApp orqali ariza qoldirasiz.",st2_t:"Diagnostika",st2_d:"Shikastni bepul baholaymiz va aniq narx aytamiz.",st3_t:"Ta'mir",st3_d:"Oynani polimer bilan 30–60 daqiqada tiklaymiz.",st4_t:"Kafolat",st4_d:"Ishga 6 oygacha kafolat beramiz.",
   rv_eye:"Sharhlar",rv_title:"5000+ haydovchi bizga ishonadi",rv1:"«Katta chaqmoq bor edi — ta'mirdan keyin joyini zo‘rg‘a topdim. Narxni darrov aytishdi.»",rv1_c:"Toyota Camry",rv2:"«To‘g‘ri ofisimga kelishdi. Yoriqni 40 daqiqada to‘xtatishdi. Tavsiya qilaman!»",rv2_c:"Kia K5",rv3:"«Aldashadi deb qo‘rqdim. Hammasi halol, kafolat yozma berishdi. Oyna yangidek.»",rv3_c:"Chevrolet Malibu",
-  fq_eye:"FAQ",fq_title:"Ko‘p so‘raladigan savollar",fq1_q:"Oynani almashtirmasdan chaqmoqni ta'mirlash mumkinmi?",fq1_a:"Ha, ko‘p hollarda chaqmoq yoki kichik yoriqni polimer bilan tiklash mumkin — almashtirishdan ancha arzon va zavod oynasi saqlanadi.",fq2_q:"Ta'mir qancha vaqt oladi?",fq2_a:"O‘rtacha 30–60 daqiqa, tur va shikastlar soniga qarab.",fq3_q:"Qaysi shikastlarni ta'mirlab bo‘lmaydi?",fq3_a:"30–40 sm dan uzun yoriqlar, haydovchi ko‘rish zonasidagi shikast yoki maydalangan oyna odatda almashtirishni talab qiladi. Bepul diagnostikadan keyin aniq aytamiz.",fq4_q:"Joyiga chiqasizmi?",fq4_a:"Ha, usta sizga kelishi mumkin — kalkulyatorda «Joyiga» variantini tanlang yoki arizada ko‘rsating.",fq5_q:"Ta'mirdan keyin kameralarni sozlash kerakmi?",fq5_a:"Agar avtoda ADAS tizimlari bo‘lsa va ish kamera zonasiga ta'sir qilsa — datchiklar to‘g‘ri ishlashi uchun rekalibratsiya qilamiz.",
+  fq_eye:"FAQ",fq_title:"Ko‘p so‘raladigan savollar",fq1_q:"Oynani almashtirmasdan chaqmoqni ta'mirlash mumkinmi?",fq1_a:"Ha, ko‘p hollarda chaqmoq yoki kichik yoriqni polimer bilan tiklash mumkin — almashtirishdan ancha arzon va zavod oynasi saqlanadi.",fq2_q:"Ta'mir qancha vaqt oladi?",fq2_a:"O‘rtacha 30–60 daqiqa, tur va shikastlar soniga qarab.",fq3_q:"Qaysi shikastlarni ta'mirlab bo‘lmaydi?",fq3_a:"Aniq bilish uchun shikast fotosini Telegramga yuboring yoki bizga keling — bepul baholaymiz. Odatda 30–40 sm dan uzun yoriqlar, haydovchi ko‘rish zonasidagi shikast yoki maydalangan oyna ta'mirlanmaydi.",fq4_q:"Joyiga chiqasizmi?",fq4_a:"Ha, usta sizga kelishi mumkin — arizada ko‘rsating yoki qo‘ng‘iroq qilganda ayting.",fq5_q:"Ta'mirdan keyin kameralarni sozlash kerakmi?",fq5_a:"Agar avtoda ADAS tizimlari bo‘lsa va ish kamera zonasiga ta'sir qilsa — datchiklar to‘g‘ri ishlashi uchun rekalibratsiya qilamiz.",
   bk_h:"Ta'mirga 30 soniyada yoziling",bk_p:"Raqamingizni qoldiring — 15 daqiqada qo‘ng‘iroq qilamiz, savollarga javob beramiz va qulay vaqt tanlaymiz. Diagnostika bepul.",bk_phone:"Du–Yak 10:00–22:00",bk_name:"Ismingiz",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chaqmoq ta'miri",bk_o2:"Yoriq ta'miri",bk_o3:"Yoriqni to‘xtatish",bk_o4:"Bilmayman — diagnostika kerak",bk_send:"Ariza yuborish",bk_privacy:"Tugmani bosib, ma'lumotlarni qayta ishlashga rozilik bildirasiz",bk_ok:"Rahmat! Ariza qabul qilindi — 15 daqiqada qo‘ng‘iroq qilamiz.",
   ft_about:"Old oyna chaqmoq va yoriqlarini professional ta'mirlash. Shaffof narxlar, AQSh materiallari, 6 oygacha kafolat.",ft_nav:"Navigatsiya",ft_contacts:"Kontaktlar",ft_maps:"Yandex.Xaritalar: AutoMasterGlass",ft_rights:"Barcha huquqlar himoyalangan"}
 };
@@ -653,7 +646,6 @@ function applyLang(lang){
   document.getElementById('langCur').textContent=lang.toUpperCase();
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!=null)el.innerHTML=d[k];});
   document.querySelectorAll('[data-ph]').forEach(el=>{const k=el.getAttribute('data-ph');if(d[k]!=null)el.placeholder=d[k];});
-  calc(); // refresh dynamic labels handled separately
 }
 /* lang menu */
 const langBtn=document.getElementById('langBtn'),langMenu=document.getElementById('langMenu');
@@ -670,25 +662,7 @@ const burger=document.getElementById('burger'),mnav=document.getElementById('mob
 burger.onclick=()=>{mnav.classList.toggle('open');};
 mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
 
-/* ---------- calculator ---------- */
-let curType='chip';
-const cType=document.getElementById('cType'),cPlace=document.getElementById('cPlace');
-function bindOpts(group,cb){group.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{group.querySelectorAll('.opt').forEach(x=>x.classList.remove('active'));o.classList.add('active');cb&&cb(o);calc();});}
-bindOpts(cType,o=>{curType=o.dataset.val;const isCrack=curType==='crack';document.getElementById('lenLabel').style.display=isCrack?'block':'none';document.getElementById('cLen').style.display=isCrack?'block':'none';});
-bindOpts(cPlace);
-const cLen=document.getElementById('cLen'),cCount=document.getElementById('cCount');
-cLen.oninput=()=>{document.getElementById('lenVal').textContent=cLen.value;calc();};
-cCount.oninput=()=>{document.getElementById('cntVal').textContent=cCount.value;calc();};
-function fmt(n){return n.toLocaleString('ru-RU');}
-function calc(){
-  const t=cType.querySelector('.opt.active');if(!t)return;
-  let base=+t.dataset.base||0;
-  if(curType==='crack')base=(+cLen.value)*(+t.dataset.perlen||0);
-  let sum=base*(+cCount.value);
-  const place=cPlace.querySelector('.opt.active');sum+=(+place.dataset.add||0);
-  document.getElementById('calcSum').textContent=fmt(sum);
-}
-calc();
+/* калькулятор удалён — стоимость по телефону/Telegram/на месте */
 
 /* ---------- before/after slider ---------- */
 const ba=document.getElementById('ba'),baAfter=document.getElementById('baAfter'),baHandle=document.getElementById('baHandle');
@@ -739,14 +713,9 @@ function applyContent(d){
     if(!d) return;
     if(d.prices){
       var p=d.prices;
-      I18N.ru.sv1_p='от '+fmtNum(p.chip)+' сум'; I18N.ru.sv2_p=fmtNum(p.crackPerCm)+' сум / см'; I18N.ru.sv3_p=fmtNum(p.stop)+' сум'; I18N.ru.cl_mobile='Выезд (+'+fmtNum(p.mobile)+')';
-      I18N.en.sv1_p='from '+fmtNum(p.chip)+' UZS'; I18N.en.sv2_p=fmtNum(p.crackPerCm)+' UZS / cm'; I18N.en.sv3_p=fmtNum(p.stop)+' UZS'; I18N.en.cl_mobile='Mobile (+'+fmtNum(p.mobile)+')';
-      I18N.uz.sv1_p=fmtNum(p.chip)+' so‘m dan'; I18N.uz.sv2_p=fmtNum(p.crackPerCm)+' so‘m / sm'; I18N.uz.sv3_p=fmtNum(p.stop)+' so‘m'; I18N.uz.cl_mobile='Joyiga (+'+fmtNum(p.mobile)+')';
-      var o;
-      if(o=cType.querySelector('.opt[data-val=chip]'))o.dataset.base=p.chip;
-      if(o=cType.querySelector('.opt[data-val=crack]'))o.dataset.perlen=p.crackPerCm;
-      if(o=cType.querySelector('.opt[data-val=stop]'))o.dataset.base=p.stop;
-      if(o=cPlace.querySelector('.opt[data-val=mobile]'))o.dataset.add=p.mobile;
+      I18N.ru.sv1_p='от '+fmtNum(p.chip)+' сум'; I18N.ru.sv2_p=fmtNum(p.crackPerCm)+' сум / см'; I18N.ru.sv3_p=fmtNum(p.stop)+' сум'; I18N.ru.sv4_p='от '+fmtNum(p.mobile)+' сум';
+      I18N.en.sv1_p='from '+fmtNum(p.chip)+' UZS'; I18N.en.sv2_p=fmtNum(p.crackPerCm)+' UZS / cm'; I18N.en.sv3_p=fmtNum(p.stop)+' UZS'; I18N.en.sv4_p='from '+fmtNum(p.mobile)+' UZS';
+      I18N.uz.sv1_p=fmtNum(p.chip)+' so‘m dan'; I18N.uz.sv2_p=fmtNum(p.crackPerCm)+' so‘m / sm'; I18N.uz.sv3_p=fmtNum(p.stop)+' so‘m'; I18N.uz.sv4_p=fmtNum(p.mobile)+' so‘m dan';
       document.querySelectorAll('.js-chipprice').forEach(function(e){e.textContent='от '+fmtNum(p.chip);});
     }
     if(d.texts){['ru','en','uz'].forEach(function(l){if(d.texts[l])Object.assign(I18N[l],d.texts[l]);});}
