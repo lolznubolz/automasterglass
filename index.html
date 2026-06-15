@@ -136,6 +136,8 @@ section.block{padding:74px 0}
 
 /* services */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:42px}
+.price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}
+@media(max-width:900px){.price-cards{grid-template-columns:1fr;gap:16px;max-width:460px;margin-left:auto;margin-right:auto}}
 .card{background:var(--card);border:1px solid var(--card-brd);border-radius:20px;padding:28px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
 .card:hover{transform:translateY(-6px);border-color:var(--accent)}
 .card .ico{width:54px;height:54px;border-radius:14px;background:var(--accent-grad);display:grid;place-items:center;font-size:26px;margin-bottom:18px}
@@ -427,7 +429,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <h2 class="sec-title" data-i18n="pr_title">Как узнать цену</h2>
       <p class="sec-sub center" data-i18n="pr_sub">Точную стоимость назовём после оценки повреждения — быстро и бесплатно. Выберите удобный способ:</p>
     </div>
-    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+    <div class="price-cards">
       <div class="card reveal">
         <div class="ico">📞</div>
         <h3 data-i18n="pr1_t">Позвоните нам</h3>
