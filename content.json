@@ -14,17 +14,17 @@
     "ru": {
       "hero_badge": "Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",
       "hero_h1": "Ремонт сколов и трещин лобового стекла с гарантией",
-      "hero_lead": "Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 80–90%."
+      "hero_lead": "Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%."
     },
     "en": {
       "hero_badge": "Open Mon–Sun, 10:00–22:00 · Mobile service",
       "hero_h1": "Windshield chip & crack repair with warranty",
-      "hero_lead": "We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 80–90% invisible."
+      "hero_lead": "We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 60–95% invisible."
     },
     "uz": {
       "hero_badge": "Du–Yak, 10:00–22:00 · Joyiga chiqamiz",
       "hero_h1": "Old oynadagi chaqmoq va yoriqlarni kafolat bilan ta'mirlash",
-      "hero_lead": "Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 80–90% ko‘rinmas bo‘ladi."
+      "hero_lead": "Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 60–95% ko‘rinmas bo‘ladi."
     }
   }
 }
