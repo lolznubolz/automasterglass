@@ -287,9 +287,45 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
   .hero-trust b{font-size:19px}
   .chip span{display:none}
 }
+/* ===== динамика (палитра не меняется) ===== */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:var(--accent-grad);box-shadow:0 0 10px var(--accent)}
+.card,.feat-item{transition:transform .28s cubic-bezier(.2,.7,.3,1),border-color .28s,box-shadow .28s}
+.card:hover{box-shadow:0 26px 54px -24px var(--accent)}
+.card .ico{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.card:hover .ico{transform:translateY(-4px) rotate(-6deg) scale(1.08)}
+.feat-item:hover{transform:translateY(-4px);border-color:var(--accent)}
+.feat-item .fi{transition:transform .35s cubic-bezier(.2,.7,.3,1);display:inline-block}
+.feat-item:hover .fi{transform:scale(1.2) rotate(-5deg)}
+.btn-primary{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);pointer-events:none}
+.btn-primary:hover::after{animation:shine .85s ease}
+@keyframes shine{to{left:140%}}
+.hero-visual{perspective:1100px}
+.hero-card{transition:transform .25s ease}
+.q[open]{border-color:var(--accent)}
+.cards>.reveal:nth-child(2),.price-cards>.reveal:nth-child(2),.feat>.reveal:nth-child(2),.steps>.reveal:nth-child(2),.revs>.reveal:nth-child(2){transition-delay:.07s}
+.cards>.reveal:nth-child(3),.price-cards>.reveal:nth-child(3),.feat>.reveal:nth-child(3),.steps>.reveal:nth-child(3),.revs>.reveal:nth-child(3){transition-delay:.14s}
+.cards>.reveal:nth-child(4),.feat>.reveal:nth-child(4),.steps>.reveal:nth-child(4){transition-delay:.21s}
+.feat>.reveal:nth-child(5){transition-delay:.28s}
+@media (prefers-reduced-motion:no-preference){
+  .glow span:nth-child(1){animation:drift1 22s ease-in-out infinite alternate}
+  .glow span:nth-child(2){animation:drift2 27s ease-in-out infinite alternate}
+  .glow span:nth-child(3){animation:drift3 24s ease-in-out infinite alternate}
+  .accent{background-size:220% 100%;animation:shimmer 7s linear infinite}
+  .float a{animation:bob 3.2s ease-in-out infinite}
+  .float a.tg{animation-delay:.5s}
+  .float a:hover{animation-play-state:paused}
+  .badge .dot{will-change:box-shadow}
+}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,55px) scale(1.18)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(-85px,45px) scale(1.12)}}
+@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(55px,-65px) scale(1.22)}}
+@keyframes shimmer{to{background-position:220% 0}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
 <div class="glow"><span></span><span></span><span></span></div>
 
 <header>
@@ -704,6 +740,27 @@ function submitForm(e){e.preventDefault();const d=I18N[curLang];alert(d.bk_ok);e
 /* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- динамика ---------- */
+/* прогресс прокрутки */
+(function(){var pb=document.getElementById('progress');if(!pb)return;addEventListener('scroll',function(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;pb.style.width=(max>0?(h.scrollTop/max*100):0)+'%';},{passive:true});})();
+/* счётчики цифр в hero */
+function animateCount(el){
+  var m=el.textContent.trim().match(/^(\d+(?:[.,]\d+)?)(.*)$/);
+  if(!m)return; /* пропускаем телефон и нечисловое */
+  var orig=m[1], suffix=m[2], target=parseFloat(orig.replace(',','.'));
+  var dec=(orig.split(/[.,]/)[1]||'').length, t0=performance.now(), dur=1300;
+  function step(now){var p=Math.min(1,(now-t0)/dur);p=1-Math.pow(1-p,3);el.textContent=(target*p).toFixed(dec)+suffix;if(p<1)requestAnimationFrame(step);else el.textContent=orig+suffix;}
+  requestAnimationFrame(step);
+}
+var statObs=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.querySelectorAll('b').forEach(animateCount);statObs.unobserve(en.target);}});},{threshold:.4});
+document.querySelectorAll('.hero-trust').forEach(function(el){statObs.observe(el);});
+/* 3D-наклон карточки в hero (только мышь) */
+(function(){var hv=document.querySelector('.hero-visual'),hc=document.querySelector('.hero-card');
+ if(!hv||!hc||!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ hv.addEventListener('mousemove',function(e){var r=hv.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hc.style.transform='rotateY('+(x*7).toFixed(2)+'deg) rotateX('+(-y*7).toFixed(2)+'deg)';});
+ hv.addEventListener('mouseleave',function(){hc.style.transform='';});
+})();
 
 /* year */
 document.getElementById('yr').textContent=new Date().getFullYear();
