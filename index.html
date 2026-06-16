@@ -331,10 +331,15 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 .ico svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .feat-item .fi{display:inline-flex;align-items:center;justify-content:center}
 .feat-item .fi svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.skiplink{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:#04121f;padding:10px 16px;border-radius:10px;font-weight:700;transition:top .2s}
+.skiplink:focus{top:12px}
+.price,.hero-trust b,.hero-card .row b,.js-chipprice{font-variant-numeric:tabular-nums}
+.nav nav a.active{color:var(--accent)}
 </style>
 </head>
 <body>
 <div id="progress"></div>
+<a class="skiplink" href="#services">К содержимому</a>
 <div class="glow"><span></span><span></span><span></span></div>
 
 <header>
@@ -757,6 +762,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 function animateCount(el){
   var m=el.textContent.trim().match(/^(\d+(?:[.,]\d+)?)(.*)$/);
   if(!m)return; /* пропускаем телефон и нечисловое */
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return; /* уважаем reduced-motion */
   var orig=m[1], suffix=m[2], target=parseFloat(orig.replace(',','.'));
   var dec=(orig.split(/[.,]/)[1]||'').length, t0=performance.now(), dur=1300;
   function step(now){var p=Math.min(1,(now-t0)/dur);p=1-Math.pow(1-p,3);el.textContent=(target*p).toFixed(dec)+suffix;if(p<1)requestAnimationFrame(step);else el.textContent=orig+suffix;}
@@ -769,6 +775,13 @@ document.querySelectorAll('.hero-trust').forEach(function(el){statObs.observe(el
  if(!hv||!hc||!matchMedia('(pointer:fine)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
  hv.addEventListener('mousemove',function(e){var r=hv.getBoundingClientRect();var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hc.style.transform='rotateY('+(x*7).toFixed(2)+'deg) rotateX('+(-y*7).toFixed(2)+'deg)';});
  hv.addEventListener('mouseleave',function(){hc.style.transform='';});
+})();
+/* активный пункт меню при прокрутке (nav-state-active) */
+(function(){
+ var links=[].slice.call(document.querySelectorAll('header nav a[href^="#"]'));
+ var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+ var spy=new IntersectionObserver(function(es){es.forEach(function(en){var a=map[en.target.id];if(a&&en.isIntersecting){links.forEach(function(l){l.classList.remove('active');});a.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+ Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)spy.observe(s);});
 })();
 
 /* year */
