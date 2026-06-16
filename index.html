@@ -322,6 +322,15 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
 @keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(55px,-65px) scale(1.22)}}
 @keyframes shimmer{to{background-position:220% 0}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+/* ===== UI/UX skill pass: доступность, тач, SVG-иконки ===== */
+a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:10px}
+.btn:focus-visible{outline-offset:3px}
+.chip{min-height:42px}
+.burger{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.ico svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feat-item .fi{display:inline-flex;align-items:center;justify-content:center}
+.feat-item .fi svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 </style>
 </head>
 <body>
@@ -339,9 +348,9 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <a href="#faq" data-i18n="nav_faq">Вопросы</a>
     </nav>
     <div class="tools">
-      <button class="chip" id="theme" title="Тема">🌙</button>
+      <button class="chip" id="theme" title="Тема" aria-label="Сменить тему">🌙</button>
       <div class="lang-wrap">
-        <button class="chip" id="langBtn">🌐 <span id="langCur">RU</span></button>
+        <button class="chip" id="langBtn" aria-label="Выбрать язык" aria-haspopup="true">🌐 <span id="langCur">RU</span></button>
         <div class="lang-menu" id="langMenu">
           <button data-lang="ru">🇷🇺 Русский</button>
           <button data-lang="en">🇬🇧 English</button>
@@ -350,7 +359,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       </div>
       <a href="#book" class="btn btn-primary desk" data-i18n="nav_book">Записаться</a>
     </div>
-    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-nav" id="mobileNav">
     <a href="#services" data-i18n="nav_services">Услуги</a>
@@ -426,28 +435,28 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
     </div>
     <div class="cards">
       <div class="card reveal">
-        <div class="ico">🔧</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3 data-i18n="sv1_t">Ремонт скола</h3>
         <p data-i18n="sv1_d">Скол засверливается и заливается полимерным составом. Становится незаметным на 60–95%.</p>
         <div class="price" data-i18n="sv1_p">от 100 000 сум</div>
         <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
       </div>
       <div class="card reveal">
-        <div class="ico">⚡</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
         <h3 data-i18n="sv2_t">Ремонт трещины</h3>
         <p data-i18n="sv2_d">Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.</p>
         <div class="price" data-i18n="sv2_p">12 000 сум / см</div>
         <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
       </div>
       <div class="card reveal">
-        <div class="ico">🛑</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div>
         <h3 data-i18n="sv3_t">Остановка трещины</h3>
         <p data-i18n="sv3_d">Засверливание для остановки роста + заполнение полимером на 2–3 см.</p>
         <div class="price" data-i18n="sv3_p">180 000 сум</div>
         <a href="#book" class="btn btn-ghost" data-i18n="sv_btn">Записаться</a>
       </div>
       <div class="card reveal">
-        <div class="ico">🚗</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.4h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 17h14a2 2 0 0 0 2-2v-2H3v2a2 2 0 0 0 2 2z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></div>
         <h3 data-i18n="sv4_t">Выезд мастера</h3>
         <p data-i18n="sv4_d">Приедем к вам — домой, в офис или на парковку. Отремонтируем стекло на месте.</p>
         <div class="price" data-i18n="sv4_p">50 000 сум</div>
@@ -467,19 +476,19 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
     </div>
     <div class="price-cards">
       <div class="card reveal">
-        <div class="ico">📞</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.74a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <h3 data-i18n="pr1_t">Позвоните нам</h3>
         <p data-i18n="pr1_d">Опишите повреждение — назовём примерную цену прямо по телефону.</p>
         <a href="tel:+998917950063" class="btn btn-primary js-phone" style="width:100%">+998 91 795 00 63</a>
       </div>
       <div class="card reveal">
-        <div class="ico">💬</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></div>
         <h3 data-i18n="pr2_t">Отправьте фото в Telegram</h3>
         <p data-i18n="pr2_d">Пришлите фото скола или трещины в Telegram — оценим за пару минут.</p>
         <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%" data-i18n="pr2_b">Написать в Telegram</a>
       </div>
       <div class="card reveal">
-        <div class="ico">📍</div>
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3 data-i18n="pr3_t">Приезжайте к нам</h3>
         <p data-i18n="pr3_d">Бесплатная диагностика на месте — сразу назовём точную стоимость.</p>
         <a href="#book" class="btn btn-ghost" style="width:100%" data-i18n="pr3_b">Оставить заявку</a>
@@ -496,11 +505,11 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
       <h2 class="sec-title" data-i18n="wh_title">Преимущества, которые видно в работе</h2>
     </div>
     <div class="feat">
-      <div class="feat-item reveal"><div class="fi">💬</div><div><h4 data-i18n="wh1_t">Честная цена сразу</h4><p data-i18n="wh1_d">Называем реальную стоимость по телефону, а не другую «по факту».</p></div></div>
-      <div class="feat-item reveal"><div class="fi">🇺🇸</div><div><h4 data-i18n="wh2_t">Материалы из США</h4><p data-i18n="wh2_d">Используем только качественные сертифицированные полимеры.</p></div></div>
-      <div class="feat-item reveal"><div class="fi">🛡️</div><div><h4 data-i18n="wh3_t">Гарантия до 6 месяцев</h4><p data-i18n="wh3_d">На сколы и на трещины до 15 см. Если что — переделаем.</p></div></div>
-      <div class="feat-item reveal"><div class="fi">⏱️</div><div><h4 data-i18n="wh4_t">Быстро, без потери качества</h4><p data-i18n="wh4_d">Средний ремонт 30–60 минут — и вы снова за рулём.</p></div></div>
-      <div class="feat-item reveal"><div class="fi">🎯</div><div><h4 data-i18n="wh5_t">Узкая специализация</h4><p data-i18n="wh5_d">Занимаемся только автостёклами — отсюда лучшее качество.</p></div></div>    </div>
+      <div class="feat-item reveal"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div><div><h4 data-i18n="wh1_t">Честная цена сразу</h4><p data-i18n="wh1_d">Называем реальную стоимость по телефону, а не другую «по факту».</p></div></div>
+      <div class="feat-item reveal"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h4 data-i18n="wh2_t">Материалы из США</h4><p data-i18n="wh2_d">Используем только качественные сертифицированные полимеры.</p></div></div>
+      <div class="feat-item reveal"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h4 data-i18n="wh3_t">Гарантия до 6 месяцев</h4><p data-i18n="wh3_d">На сколы и на трещины до 15 см. Если что — переделаем.</p></div></div>
+      <div class="feat-item reveal"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h4 data-i18n="wh4_t">Быстро, без потери качества</h4><p data-i18n="wh4_d">Средний ремонт 30–60 минут — и вы снова за рулём.</p></div></div>
+      <div class="feat-item reveal"><div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><div><h4 data-i18n="wh5_t">Узкая специализация</h4><p data-i18n="wh5_d">Занимаемся только автостёклами — отсюда лучшее качество.</p></div></div>    </div>
   </div>
 </section>
 
@@ -585,8 +594,8 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
         </div>
       </div>
       <form class="form" id="bookForm" onsubmit="return submitForm(event)">
-        <input type="text" name="name" placeholder="Ваше имя" data-ph="bk_name" required>
-        <input type="tel" name="phone" placeholder="+998 __ ___ __ __" data-ph="bk_phone_ph" required>
+        <input type="text" name="name" placeholder="Ваше имя" data-ph="bk_name" aria-label="Ваше имя" autocomplete="name" required>
+        <input type="tel" name="phone" placeholder="+998 __ ___ __ __" data-ph="bk_phone_ph" aria-label="Телефон" autocomplete="tel" inputmode="tel" required>
         <select name="service" data-i18n-opts="bk_opts">
           <option data-i18n="bk_o1">Ремонт скола</option>
           <option data-i18n="bk_o2">Ремонт трещины</option>
@@ -697,7 +706,7 @@ themeBtn.onclick=()=>{const h=document.documentElement;const l=h.getAttribute('d
 
 /* ---------- burger ---------- */
 const burger=document.getElementById('burger'),mnav=document.getElementById('mobileNav');
-burger.onclick=()=>{mnav.classList.toggle('open');};
+burger.onclick=()=>{const o=mnav.classList.toggle('open');burger.setAttribute('aria-expanded',o);};
 mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
 
 /* калькулятор удалён — стоимость по телефону/Telegram/на месте */
