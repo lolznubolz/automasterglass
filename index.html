@@ -39,13 +39,14 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:#000000; --bg2:#0a0e16; --card:rgba(255,255,255,.045); --card-brd:rgba(255,255,255,.10);
   --txt:#ffffff; --muted:#afb4c0; --accent:#1e82e5; --accent2:#1731c6; --accent-grad:linear-gradient(120deg,#1e82e5,#1731c6);
   --ok:#34d399; --warn:#fbbf24; --coral:#ff8562; --shadow:0 20px 60px -20px rgba(0,0,0,.7);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
   --maxw:1180px;
 }
 [data-theme="light"]{
@@ -335,6 +336,11 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 .skiplink:focus{top:12px}
 .price,.hero-trust b,.hero-card .row b,.js-chipprice{font-variant-numeric:tabular-nums}
 .nav nav a.active{color:var(--accent)}
+/* ===== frontend-design: «приборная» типографика-сигнатура ===== */
+.eyebrow{font-family:var(--mono);font-weight:700;letter-spacing:.16em}
+.price,.js-chipprice,.hero-card .row b,#baCount{font-family:var(--mono);font-weight:700}
+.price{font-size:19px}
+.hero-trust b{font-family:var(--mono);font-weight:700;font-size:22px;letter-spacing:-.02em}
 </style>
 </head>
 <body>
