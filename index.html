@@ -805,7 +805,7 @@ function submitForm(e){
     s.textContent='✓ '+(d.bk_ok||'Заявка принята');
     clearTimeout(s._t); s._t=setTimeout(function(){s.textContent='';},6000);
   };
-  fetch('/api/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(done,done);
+  fetch('https://amg-lead.lolznubolz.workers.dev/',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(done,done);
   return false;
 }
 
