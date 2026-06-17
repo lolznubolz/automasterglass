@@ -795,14 +795,17 @@ function submitForm(e){
   var d=I18N[curLang], f=e.target, btn=f.querySelector('button[type=submit]');
   if(!btn) return false;
   var orig=btn.textContent;
+  var g=function(n){var el=f.elements[n];return el?(''+el.value):'';};
+  var payload={name:g('name'),phone:g('phone'),service:g('service'),page:location.href};
   btn.disabled=true; btn.textContent=(d.bk_sending||'Отправка…');
-  setTimeout(function(){
+  var done=function(){
     btn.disabled=false; btn.textContent=orig; f.reset();
     var s=f.querySelector('.form-status');
     if(!s){s=document.createElement('div');s.className='form-status';s.setAttribute('role','status');s.setAttribute('aria-live','polite');f.appendChild(s);}
     s.textContent='✓ '+(d.bk_ok||'Заявка принята');
     clearTimeout(s._t); s._t=setTimeout(function(){s.textContent='';},6000);
-  },700);
+  };
+  fetch('/api/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(done,done);
   return false;
 }
 
