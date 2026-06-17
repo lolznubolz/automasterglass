@@ -4,8 +4,8 @@
   "prices": {
     "chip": 100000,
     "crackPerCm": 12000,
-    "stop": 180000,
-    "mobile": 50000
+    "stop": 250000,
+    "mobile": 150000
   },
   "gallery": [
     { "before": "before-amg1.jpg", "after": "after-amg1.jpg" }
