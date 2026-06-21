@@ -47,10 +47,9 @@
   --txt:#ffffff; --muted:#afb4c0; --accent:#1e82e5; --accent2:#1731c6; --accent-grad:linear-gradient(120deg,#1e82e5,#1731c6);
   --ok:#34d399; --warn:#fbbf24; --coral:#ff8562; --shadow:0 20px 60px -20px rgba(0,0,0,.7);
   --mono:'JetBrains Mono',ui-monospace,monospace;
-  --accent-lt:#5aa2f0;
   --maxw:1180px;
 }
-[data-theme="light"]{--accent-lt:#1763c9;
+[data-theme="light"]{
   --bg:#f4f7fc; --bg2:#ffffff; --card:rgba(20,40,80,.03); --card-brd:rgba(20,40,80,.10);
   --txt:#0d1b33; --muted:#5a6b86; --shadow:0 20px 50px -24px rgba(20,40,80,.25);
 }
@@ -75,6 +74,8 @@ header{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:co
 .nav{display:flex;align-items:center;gap:18px;height:68px}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:800;font-size:19px}
 .logo .mark{width:34px;height:34px;border-radius:9px;background:var(--accent-grad);display:grid;place-items:center;font-size:18px;box-shadow:0 6px 18px -6px var(--accent)}
+.logo-img{height:40px;width:auto;display:block}
+[data-theme="light"] .logo-img{filter:invert(1)}
 .nav nav{display:flex;gap:24px;margin-left:auto}
 .nav nav a{color:var(--muted);font-weight:600;font-size:15px;transition:color .2s;position:relative}
 .nav nav a:hover{color:var(--txt)}
@@ -92,7 +93,6 @@ header{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:co
 .btn-ghost{background:var(--card);border:1px solid var(--card-brd);color:var(--txt)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.mobile-nav{display:none}
 .burger span{width:24px;height:2px;background:var(--txt);border-radius:2px;transition:.3s}
 
 /* hero */
@@ -266,7 +266,7 @@ footer{border-top:1px solid var(--card-brd);padding:50px 0 30px;margin-top:74px}
   section.block{padding:48px 0}
   .calc,.cta-band{padding:22px}
   .nav{gap:10px;height:62px}
-  .logo{font-size:17px}.logo .mark{width:30px;height:30px;font-size:16px}
+  .logo{font-size:17px}.logo .mark{width:30px;height:30px;font-size:16px}.logo-img{height:33px}
   .chip{padding:8px 9px;font-size:12px}
   .tools{gap:7px;margin-left:8px}
   .mobile-nav{inset:62px 0 auto 0}
@@ -337,14 +337,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 .skiplink{position:absolute;left:12px;top:-60px;z-index:200;background:var(--accent);color:#04121f;padding:10px 16px;border-radius:10px;font-weight:700;transition:top .2s}
 .skiplink:focus{top:12px}
 .price,.hero-trust b,.hero-card .row b,.js-chipprice{font-variant-numeric:tabular-nums}
-.nav nav a.active{color:var(--accent-lt)}
-/* контраст: светлый акцент для мелкого текста */
-.eyebrow{color:var(--accent-lt)}
-.price{color:var(--accent-lt)}
-.ya-reviews a{color:var(--accent-lt)}
-.foot a:hover{color:var(--accent-lt)}
-.btn-ghost:hover{color:var(--accent-lt);border-color:var(--accent-lt)}
-.form .form-status{margin-top:12px;text-align:center;font-weight:700;font-size:14px;color:#bbf7d0;min-height:18px}
+.nav nav a.active{color:var(--accent)}
 /* ===== frontend-design: «приборная» типографика-сигнатура ===== */
 .eyebrow{font-family:var(--mono);font-weight:700;letter-spacing:.16em}
 .price,.js-chipprice,.hero-card .row b,#baCount{font-family:var(--mono);font-weight:700}
@@ -365,7 +358,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo"><span class="mark">◈</span><span class="brand">AutoMaster<span class="accent">Glass</span></span></a>
+    <a href="#top" class="logo"><img src="/amg-logo.png" alt="AutoMasterGlass" class="logo-img"></a>
     <nav>
       <a href="#services" data-i18n="nav_services">Услуги</a>
       <a href="#calc" data-i18n="nav_calc">Калькулятор</a>
@@ -400,7 +393,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="badge"><span class="dot"></span><span data-i18n="hero_badge">Работаем Пн–Вс, 10:00–22:00 · Возможен выезд по городу</span></span>
+      <span class="badge"><span class="dot"></span><span data-i18n="hero_badge">Работаем Пн–Вс, 10:00–22:00 · Выезд по городу</span></span>
       <h1 data-i18n="hero_h1">Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span></h1>
       <p class="lead" data-i18n="hero_lead">Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%.</p>
       <div class="hero-cta">
@@ -518,7 +511,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
         <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg></div>
         <h3 data-i18n="pr2_t">Отправьте фото в Telegram</h3>
         <p data-i18n="pr2_d">Пришлите фото скола или трещины в Telegram — оценим за пару минут.</p>
-        <a href="https://t.me/automasterglasslive" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%" data-i18n="pr2_b">Написать в Telegram</a>
+        <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener" class="btn btn-ghost" style="width:100%" data-i18n="pr2_b">Написать в Telegram</a>
       </div>
       <div class="card reveal">
         <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -647,7 +640,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 <footer>
   <div class="wrap foot">
     <div>
-      <a href="#top" class="logo"><span class="mark">◈</span><span class="brand">AutoMaster<span class="accent">Glass</span></span></a>
+      <a href="#top" class="logo"><img src="/amg-logo.png" alt="AutoMasterGlass" class="logo-img"></a>
       <p data-i18n="ft_about">Профессиональный ремонт сколов и трещин лобового стекла. Прозрачные цены, материалы из США, гарантия до 6 месяцев.</p>
     </div>
     <div>
@@ -660,7 +653,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
     <div>
       <h5 data-i18n="ft_contacts">Контакты</h5>
       <a href="tel:+998917950063"><span class="js-phone">+998 91 795 00 63</span></a>
-      <a href="https://t.me/automasterglasslive" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener">Telegram</a>
       <a href="https://wa.me/998917950063" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://yandex.ru/maps/org/automasterglass/44943891663/" target="_blank" rel="noopener" data-i18n="ft_maps">Ташкент, Юнусабадский р-н (Богибустан) · Яндекс.Карты</a>
     </div>
@@ -672,7 +665,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
   <a class="wa" href="https://wa.me/998917950063?text=Привет!%20Хочу%20записаться%20на%20ремонт" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.81L4 28l7.34-2.5a11.02 11.02 0 0 0 4.7 1.05h.01c6.11 0 11.06-4.95 11.06-11.06C27.1 8.95 22.15 4 16.04 4zm0 20.3h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.92 1.33 1.35-3.82-.2-.32a8.94 8.94 0 0 1-1.37-4.77c0-4.94 4.02-8.96 8.97-8.96 2.4 0 4.65.94 6.34 2.63a8.9 8.9 0 0 1 2.62 6.34c0 4.95-4.02 8.96-8.96 8.96zm4.92-6.71c-.27-.14-1.6-.79-1.84-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.52-.45-.45-.61-.46h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
   </a>
-  <a class="tg" href="https://t.me/automasterglasslive" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
+  <a class="tg" href="https://t.me/AMG_AutoMasterGlass" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.14-3.05-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
   </a>
 </div>
@@ -682,7 +675,7 @@ a,button,summary,.opt,.chip,.tab,input,select,textarea,.ba{touch-action:manipula
 /* ---------- i18n ---------- */
 const I18N={
  ru:{nav_services:"Услуги",nav_calc:"Стоимость",nav_why:"Преимущества",nav_reviews:"Отзывы",nav_faq:"Вопросы",nav_book:"Записаться",
-  hero_badge:"Работаем Пн–Вс, 10:00–22:00 · Возможен выезд по городу",hero_h1:'Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span>',hero_lead:"Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%.",hero_cta1:"Записаться онлайн",hero_cta2:"Узнать стоимость",hero_t1:"31 отзыв · Яндекс",hero_t2:"гарантия",hero_t3:"средний ремонт",hero_t4:"авто отремонтировано",
+  hero_badge:"Работаем Пн–Вс, 10:00–22:00 · Выезд по городу",hero_h1:'Ремонт сколов и трещин лобового стекла <span class="accent">с гарантией</span>',hero_lead:"Восстанавливаем стекло за 30–60 минут полимерами из США. Без замены, без переплат — скол становится незаметным на 60–95%.",hero_cta1:"Записаться онлайн",hero_cta2:"Узнать стоимость",hero_t1:"31 отзыв · Яндекс",hero_t2:"гарантия",hero_t3:"средний ремонт",hero_t4:"авто отремонтировано",
   hc_1:"Диагностика",hc_free:"Бесплатно",hc_2:"Ремонт скола",hc_3:"Гарантия",hc_4:"Выезд мастера",hc_avail:"Доступен",
   sv_eye:"Наши услуги",sv_title:"Услуги и прозрачные цены",sv_sub:"Прозрачные цены, которые мы называем сразу — без сюрпризов «по факту».",sv1_t:"Ремонт скола",sv1_d:"Скол засверливается и заливается полимерным составом. Становится незаметным на 60–95%.",sv1_p:"от 100 000 сум",sv2_t:"Ремонт трещины",sv2_d:"Остановка и заполнение трещины полимером. Трещина становится на 60–70% незаметнее.",sv2_p:"12 000 сум / см",sv3_t:"Остановка трещины",sv3_d:"Засверливание для остановки роста + заполнение полимером на 2–3 см.",sv3_p:"180 000 сум",sv4_t:"Выезд мастера",sv4_d:"Приедем к вам — домой, в офис или на парковку. Отремонтируем стекло на месте.",sv4_p:"50 000 сум",sv5_t:"Полировка стекла",sv5_d:"Убираем царапины от дворников и мелкие потёртости — стекло снова прозрачное, без бликов от встречных фар.",sv5_p:"от 250 000 сум",sv_btn:"Записаться",
   pr_eye:"Стоимость",pr_title:"Как узнать цену",pr_sub:"Точную стоимость назовём после оценки повреждения — быстро и бесплатно. Выберите удобный способ:",pr1_t:"Позвоните нам",pr1_d:"Опишите повреждение — назовём примерную цену прямо по телефону.",pr2_t:"Отправьте фото в Telegram",pr2_d:"Пришлите фото скола или трещины в Telegram — оценим за пару минут.",pr2_b:"Написать в Telegram",pr3_t:"Приезжайте к нам",pr3_d:"Бесплатная диагностика на месте — сразу назовём точную стоимость.",pr3_b:"Оставить заявку",
@@ -691,11 +684,11 @@ const I18N={
   st_eye:"Как мы работаем",st_title:"4 простых шага",st1_t:"Заявка",st1_d:"Оставляете заявку онлайн или в Telegram/WhatsApp.",st2_t:"Диагностика",st2_d:"Бесплатно оцениваем повреждение и называем точную цену.",st3_t:"Ремонт",st3_d:"Восстанавливаем стекло за 30–60 минут полимером.",st4_t:"Гарантия",st4_d:"Выдаём гарантию до 6 месяцев на работу.",
   rv_eye:"Отзывы",rv_title:"Реальные отзывы наших клиентов",rv_all:"Открыть все отзывы на Яндекс.Картах →",rv1:"«Скол на пол-капота был — после ремонта еле нашёл место. Цену назвали сразу, без накруток.»",rv1_c:"Toyota Camry",rv2:"«Приехали на выезд прямо к офису. Трещину остановили за 40 минут. Рекомендую!»",rv2_c:"Kia K5",rv3:"«Боялся, что разведут. В итоге всё честно, гарантию дали письменно. Стекло как новое.»",rv3_c:"Chevrolet Malibu",
   fq_eye:"FAQ",fq_title:"Частые вопросы",fq1_q:"Можно ли отремонтировать скол, а не менять стекло?",fq1_a:"Да, в большинстве случаев скол или небольшую трещину можно восстановить полимером — это в разы дешевле замены и сохраняет заводское стекло.",fq2_q:"Сколько по времени занимает ремонт?",fq2_a:"В среднем 30–60 минут в зависимости от типа и количества повреждений.",fq3_q:"Какие повреждения уже нельзя ремонтировать?",fq3_a:"Чтобы узнать точно, отправьте фото повреждения в Telegram или приезжайте к нам — оценим бесплатно. Обычно не подлежат ремонту трещины длиннее 30–40 см, повреждения в зоне обзора водителя или с раскрошенным стеклом.",fq4_q:"Вы выезжаете на место?",fq4_a:"Да, мастер может приехать к вам — укажите это в заявке или сообщите при звонке.",fq5_q:"Нужно ли настраивать камеры после ремонта?",fq5_a:"Если у авто есть системы помощи водителю (ADAS) и работы затронули зону камеры — мы выполним рекалибровку, чтобы датчики работали корректно.",
-  bk_h:"Запишитесь на ремонт за 30 секунд",bk_p:"Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.",bk_phone:"Пн–Вс 10:00–22:00",bk_name:"Ваше имя",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Ремонт скола",bk_o2:"Ремонт трещины",bk_o3:"Остановка трещины",bk_o4:"Не знаю — нужна диагностика",bk_send:"Отправить заявку",bk_privacy:"Нажимая кнопку, вы соглашаетесь на обработку данных",bk_ok:"Спасибо! Заявка принята — перезвоним в течение 15 минут.",bk_sending:"Отправка…",
-  ft_about:"Профессиональный ремонт сколов и трещин лобового стекла и полировка стёкол. Прозрачные цены, материалы из США, гарантия до 6 месяцев.",ft_nav:"Навигация",ft_contacts:"Контакты",ft_maps:"Ташкент, Юнусабадский р-н (Богибустан) · Яндекс.Карты",ft_rights:"Все права защищены"},
+  bk_h:"Запишитесь на ремонт за 30 секунд",bk_p:"Оставьте номер — перезвоним в течение 15 минут, ответим на вопросы и подберём удобное время. Диагностика бесплатна.",bk_phone:"Пн–Вс 10:00–22:00",bk_name:"Ваше имя",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Ремонт скола",bk_o2:"Ремонт трещины",bk_o3:"Остановка трещины",bk_o4:"Не знаю — нужна диагностика",bk_send:"Отправить заявку",bk_privacy:"Нажимая кнопку, вы соглашаетесь на обработку данных",bk_ok:"Спасибо! Заявка принята — перезвоним в течение 15 минут.",
+  ft_about:"Профессиональный ремонт сколов и трещин лобового стекла. Прозрачные цены, материалы из США, гарантия до 6 месяцев.",ft_nav:"Навигация",ft_contacts:"Контакты",ft_maps:"Ташкент, Юнусабадский р-н (Богибустан) · Яндекс.Карты",ft_rights:"Все права защищены"},
 
  en:{nav_services:"Services",nav_calc:"Price",nav_why:"Advantages",nav_reviews:"Reviews",nav_faq:"FAQ",nav_book:"Book now",
-  hero_badge:"Open Mon–Sun, 10:00–22:00 · Mobile service available",hero_h1:'Windshield chip & crack repair <span class="accent">with warranty</span>',hero_lead:"We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 60–95% invisible.",hero_cta1:"Book online",hero_cta2:"Get a price",hero_t1:"31 reviews · Yandex",hero_t2:"warranty",hero_t3:"average repair",hero_t4:"cars repaired",
+  hero_badge:"Open Mon–Sun, 10:00–22:00 · Mobile service",hero_h1:'Windshield chip & crack repair <span class="accent">with warranty</span>',hero_lead:"We restore your glass in 30–60 minutes with US-made resins. No replacement, no overpaying — the chip becomes 60–95% invisible.",hero_cta1:"Book online",hero_cta2:"Get a price",hero_t1:"31 reviews · Yandex",hero_t2:"warranty",hero_t3:"average repair",hero_t4:"cars repaired",
   hc_1:"Diagnostics",hc_free:"Free",hc_2:"Chip repair",hc_3:"Warranty",hc_4:"Mobile service",hc_avail:"Available",
   sv_eye:"Our services",sv_title:"Services & transparent prices",sv_sub:"Transparent prices we quote upfront — no surprises afterwards.",sv1_t:"Chip repair",sv1_d:"The chip is drilled and filled with resin, becoming 60–95% invisible.",sv1_p:"from 100,000 UZS",sv2_t:"Crack repair",sv2_d:"Stopping and filling the crack with resin — 60–70% less visible.",sv2_p:"12,000 UZS / cm",sv3_t:"Crack stop",sv3_d:"Drilling to stop the spread + resin fill for 2–3 cm.",sv3_p:"180,000 UZS",sv4_t:"Mobile service",sv4_d:"We come to you — home, office or parking. We repair the glass on the spot.",sv4_p:"from 50,000 UZS",sv5_t:"Glass polishing",sv5_d:"We remove wiper scratches and minor scuffs — the glass is clear again, with no glare from oncoming headlights.",sv5_p:"from 250,000 UZS",sv_btn:"Book",
   pr_eye:"Price",pr_title:"How to get a price",pr_sub:"We'll give the exact price after assessing the damage — fast and free. Pick a convenient way:",pr1_t:"Call us",pr1_d:"Describe the damage — we'll give an approximate price right on the phone.",pr2_t:"Send a photo to Telegram",pr2_d:"Send a photo of the chip or crack to Telegram — we'll estimate in a couple of minutes.",pr2_b:"Message on Telegram",pr3_t:"Come to us",pr3_d:"Free on-site diagnostics — we'll name the exact price right away.",pr3_b:"Leave a request",
@@ -704,11 +697,11 @@ const I18N={
   st_eye:"How we work",st_title:"4 simple steps",st1_t:"Request",st1_d:"Leave a request online or via Telegram/WhatsApp.",st2_t:"Diagnostics",st2_d:"We assess the damage for free and give an exact price.",st3_t:"Repair",st3_d:"We restore the glass in 30–60 minutes with resin.",st4_t:"Warranty",st4_d:"We provide up to 6 months warranty on the work.",
   rv_eye:"Reviews",rv_title:"Real reviews from our clients",rv_all:"See all reviews on Yandex Maps →",rv1:"\"Half-palm chip — after the repair I could barely find the spot. Price quoted upfront, no markups.\"",rv1_c:"Toyota Camry",rv2:"\"They came right to my office. Stopped the crack in 40 minutes. Recommend!\"",rv2_c:"Kia K5",rv3:"\"I was afraid of a scam. It was all fair, warranty in writing. Glass like new.\"",rv3_c:"Chevrolet Malibu",
   fq_eye:"FAQ",fq_title:"Frequently asked",fq1_q:"Can a chip be repaired instead of replacing the glass?",fq1_a:"Yes, in most cases a chip or small crack can be restored with resin — far cheaper than replacement and it keeps your factory glass.",fq2_q:"How long does the repair take?",fq2_a:"On average 30–60 minutes depending on type and number of damages.",fq3_q:"Which damages can't be repaired?",fq3_a:"To find out for sure, send a photo of the damage to Telegram or come to us — we'll assess it for free. Usually cracks longer than 30–40 cm, damage in the driver's view, or shattered glass can't be repaired.",fq4_q:"Do you offer mobile service?",fq4_a:"Yes, a master can come to you — note it in your request or tell us on the phone.",fq5_q:"Do cameras need calibration after repair?",fq5_a:"If your car has driver-assist systems (ADAS) and the work touched the camera area, we'll recalibrate so the sensors work correctly.",
-  bk_h:"Book your repair in 30 seconds",bk_p:"Leave your number — we'll call back within 15 minutes, answer your questions and pick a convenient time. Diagnostics are free.",bk_phone:"Mon–Sun 10:00–22:00",bk_name:"Your name",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chip repair",bk_o2:"Crack repair",bk_o3:"Crack stop",bk_o4:"Not sure — need diagnostics",bk_send:"Send request",bk_privacy:"By clicking you agree to data processing",bk_ok:"Thank you! Request received — we'll call within 15 minutes.",bk_sending:"Sending…",
-  ft_about:"Professional windshield chip and crack repair and glass polishing. Transparent prices, US-made materials, warranty up to 6 months.",ft_nav:"Navigation",ft_contacts:"Contacts",ft_maps:"Tashkent, Yunusabad district · Yandex Maps",ft_rights:"All rights reserved"},
+  bk_h:"Book your repair in 30 seconds",bk_p:"Leave your number — we'll call back within 15 minutes, answer your questions and pick a convenient time. Diagnostics are free.",bk_phone:"Mon–Sun 10:00–22:00",bk_name:"Your name",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chip repair",bk_o2:"Crack repair",bk_o3:"Crack stop",bk_o4:"Not sure — need diagnostics",bk_send:"Send request",bk_privacy:"By clicking you agree to data processing",bk_ok:"Thank you! Request received — we'll call within 15 minutes.",
+  ft_about:"Professional windshield chip and crack repair. Transparent prices, US-made materials, warranty up to 6 months.",ft_nav:"Navigation",ft_contacts:"Contacts",ft_maps:"Tashkent, Yunusabad district · Yandex Maps",ft_rights:"All rights reserved"},
 
  uz:{nav_services:"Xizmatlar",nav_calc:"Narx",nav_why:"Afzalliklar",nav_reviews:"Sharhlar",nav_faq:"Savollar",nav_book:"Yozilish",
-  hero_badge:"Du–Yak, 10:00–22:00 · Joyiga chiqish mumkin",hero_h1:'Old oynadagi chaqmoq va yoriqlarni <span class="accent">kafolat bilan</span> ta\'mirlash',hero_lead:"Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 60–95% ko‘rinmas bo‘ladi.",hero_cta1:"Onlayn yozilish",hero_cta2:"Narxni bilish",hero_t1:"31 sharh · Yandex",hero_t2:"kafolat",hero_t3:"o‘rtacha ta'mir",hero_t4:"avto ta'mirlangan",
+  hero_badge:"Du–Yak, 10:00–22:00 · Joyiga chiqamiz",hero_h1:'Old oynadagi chaqmoq va yoriqlarni <span class="accent">kafolat bilan</span> ta\'mirlash',hero_lead:"Oynani 30–60 daqiqada AQSh polimerlari bilan tiklaymiz. Almashtirishsiz, ortiqcha to‘lovsiz — chaqmoq 60–95% ko‘rinmas bo‘ladi.",hero_cta1:"Onlayn yozilish",hero_cta2:"Narxni bilish",hero_t1:"31 sharh · Yandex",hero_t2:"kafolat",hero_t3:"o‘rtacha ta'mir",hero_t4:"avto ta'mirlangan",
   hc_1:"Diagnostika",hc_free:"Bepul",hc_2:"Chaqmoq ta'miri",hc_3:"Kafolat",hc_4:"Joyiga chiqish",hc_avail:"Mavjud",
   sv_eye:"Xizmatlarimiz",sv_title:"Xizmatlar va shaffof narxlar",sv_sub:"Darrov aytadigan shaffof narxlar — keyin “amalda” siri yo‘q.",sv1_t:"Chaqmoq ta'miri",sv1_d:"Chaqmoq teshiladi va polimer bilan to‘ldiriladi. 60–95% ko‘rinmas bo‘ladi.",sv1_p:"100 000 so‘mdan",sv2_t:"Yoriq ta'miri",sv2_d:"Yoriqni to‘xtatish va polimer bilan to‘ldirish — 60–70% kamroq ko‘rinadi.",sv2_p:"12 000 so‘m / sm",sv3_t:"Yoriqni to‘xtatish",sv3_d:"O‘sishni to‘xtatish uchun teshish + 2–3 sm polimer.",sv3_p:"180 000 so‘m",sv4_t:"Joyiga chiqish",sv4_d:"Sizga kelamiz — uy, ofis yoki to‘xtash joyiga. Oynani joyida ta'mirlaymiz.",sv4_p:"50 000 so‘mdan",sv5_t:"Oyna jilolash",sv5_d:"Tozalagich tirnalishlari va mayda chiziqlarni olib tashlaymiz — oyna yana tiniq, qarama-qarshi faralardan ko‘zni qamashtirmaydi.",sv5_p:"250 000 so‘mdan",sv_btn:"Yozilish",
   pr_eye:"Narx",pr_title:"Narxni qanday bilish mumkin",pr_sub:"Aniq narxni shikastni ko‘rgach aytamiz — tez va bepul. Qulay usulni tanlang:",pr1_t:"Bizga qo‘ng‘iroq qiling",pr1_d:"Shikastni tasvirlang — taxminiy narxni telefon orqali aytamiz.",pr2_t:"Telegramga foto yuboring",pr2_d:"Chaqmoq yoki yoriq fotosini Telegramga yuboring — bir necha daqiqada baholaymiz.",pr2_b:"Telegramda yozish",pr3_t:"Bizga keling",pr3_d:"Joyida bepul diagnostika — aniq narxni darrov aytamiz.",pr3_b:"Ariza qoldirish",
@@ -717,16 +710,15 @@ const I18N={
   st_eye:"Qanday ishlaymiz",st_title:"4 oddiy qadam",st1_t:"Ariza",st1_d:"Onlayn yoki Telegram/WhatsApp orqali ariza qoldirasiz.",st2_t:"Diagnostika",st2_d:"Shikastni bepul baholaymiz va aniq narx aytamiz.",st3_t:"Ta'mir",st3_d:"Oynani polimer bilan 30–60 daqiqada tiklaymiz.",st4_t:"Kafolat",st4_d:"Ishga 6 oygacha kafolat beramiz.",
   rv_eye:"Sharhlar",rv_title:"Mijozlarimizning haqiqiy sharhlari",rv_all:"Yandex Xaritalarda barcha sharhlar →",rv1:"«Katta chaqmoq bor edi — ta'mirdan keyin joyini zo‘rg‘a topdim. Narxni darrov aytishdi.»",rv1_c:"Toyota Camry",rv2:"«To‘g‘ri ofisimga kelishdi. Yoriqni 40 daqiqada to‘xtatishdi. Tavsiya qilaman!»",rv2_c:"Kia K5",rv3:"«Aldashadi deb qo‘rqdim. Hammasi halol, kafolat yozma berishdi. Oyna yangidek.»",rv3_c:"Chevrolet Malibu",
   fq_eye:"FAQ",fq_title:"Ko‘p so‘raladigan savollar",fq1_q:"Oynani almashtirmasdan chaqmoqni ta'mirlash mumkinmi?",fq1_a:"Ha, ko‘p hollarda chaqmoq yoki kichik yoriqni polimer bilan tiklash mumkin — almashtirishdan ancha arzon va zavod oynasi saqlanadi.",fq2_q:"Ta'mir qancha vaqt oladi?",fq2_a:"O‘rtacha 30–60 daqiqa, tur va shikastlar soniga qarab.",fq3_q:"Qaysi shikastlarni ta'mirlab bo‘lmaydi?",fq3_a:"Aniq bilish uchun shikast fotosini Telegramga yuboring yoki bizga keling — bepul baholaymiz. Odatda 30–40 sm dan uzun yoriqlar, haydovchi ko‘rish zonasidagi shikast yoki maydalangan oyna ta'mirlanmaydi.",fq4_q:"Joyiga chiqasizmi?",fq4_a:"Ha, usta sizga kelishi mumkin — arizada ko‘rsating yoki qo‘ng‘iroq qilganda ayting.",fq5_q:"Ta'mirdan keyin kameralarni sozlash kerakmi?",fq5_a:"Agar avtoda ADAS tizimlari bo‘lsa va ish kamera zonasiga ta'sir qilsa — datchiklar to‘g‘ri ishlashi uchun rekalibratsiya qilamiz.",
-  bk_h:"Ta'mirga 30 soniyada yoziling",bk_p:"Raqamingizni qoldiring — 15 daqiqada qo‘ng‘iroq qilamiz, savollarga javob beramiz va qulay vaqt tanlaymiz. Diagnostika bepul.",bk_phone:"Du–Yak 10:00–22:00",bk_name:"Ismingiz",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chaqmoq ta'miri",bk_o2:"Yoriq ta'miri",bk_o3:"Yoriqni to‘xtatish",bk_o4:"Bilmayman — diagnostika kerak",bk_send:"Ariza yuborish",bk_privacy:"Tugmani bosib, ma'lumotlarni qayta ishlashga rozilik bildirasiz",bk_ok:"Rahmat! Ariza qabul qilindi — 15 daqiqada qo‘ng‘iroq qilamiz.",bk_sending:"Yuborilmoqda…",
-  ft_about:"Old oyna chaqmoq va yoriqlarini professional ta'mirlash hamda oyna jilolash. Shaffof narxlar, AQSh materiallari, 6 oygacha kafolat.",ft_nav:"Navigatsiya",ft_contacts:"Kontaktlar",ft_maps:"Toshkent, Yunusobod tumani · Yandex",ft_rights:"Barcha huquqlar himoyalangan"}
+  bk_h:"Ta'mirga 30 soniyada yoziling",bk_p:"Raqamingizni qoldiring — 15 daqiqada qo‘ng‘iroq qilamiz, savollarga javob beramiz va qulay vaqt tanlaymiz. Diagnostika bepul.",bk_phone:"Du–Yak 10:00–22:00",bk_name:"Ismingiz",bk_phone_ph:"+998 __ ___ __ __",bk_o1:"Chaqmoq ta'miri",bk_o2:"Yoriq ta'miri",bk_o3:"Yoriqni to‘xtatish",bk_o4:"Bilmayman — diagnostika kerak",bk_send:"Ariza yuborish",bk_privacy:"Tugmani bosib, ma'lumotlarni qayta ishlashga rozilik bildirasiz",bk_ok:"Rahmat! Ariza qabul qilindi — 15 daqiqada qo‘ng‘iroq qilamiz.",
+  ft_about:"Old oyna chaqmoq va yoriqlarini professional ta'mirlash. Shaffof narxlar, AQSh materiallari, 6 oygacha kafolat.",ft_nav:"Navigatsiya",ft_contacts:"Kontaktlar",ft_maps:"Toshkent, Yunusobod tumani · Yandex",ft_rights:"Barcha huquqlar himoyalangan"}
 };
 
-let curLang=(function(){try{return localStorage.getItem('amg_lang')||'ru';}catch(e){return 'ru';}})();
+let curLang='ru';
 function applyLang(lang){
   curLang=lang; const d=I18N[lang];
   document.documentElement.lang=lang;
   document.getElementById('langCur').textContent=lang.toUpperCase();
-  try{localStorage.setItem('amg_lang',lang);}catch(e){}
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!=null)el.innerHTML=d[k];});
   document.querySelectorAll('[data-ph]').forEach(el=>{const k=el.getAttribute('data-ph');if(d[k]!=null)el.placeholder=d[k];});
 }
@@ -738,8 +730,7 @@ langMenu.querySelectorAll('button').forEach(b=>b.onclick=()=>{applyLang(b.datase
 
 /* ---------- theme ---------- */
 const themeBtn=document.getElementById('theme');
-(function(){try{var st=localStorage.getItem('amg_theme');if(st){document.documentElement.setAttribute('data-theme',st);themeBtn.textContent=st==='light'?'☀️':'🌙';}}catch(e){}})();
-themeBtn.onclick=()=>{const h=document.documentElement;const l=h.getAttribute('data-theme')==='light';const nt=l?'dark':'light';h.setAttribute('data-theme',nt);themeBtn.textContent=l?'🌙':'☀️';try{localStorage.setItem('amg_theme',nt);}catch(e){}};
+themeBtn.onclick=()=>{const h=document.documentElement;const l=h.getAttribute('data-theme')==='light';h.setAttribute('data-theme',l?'dark':'light');themeBtn.textContent=l?'🌙':'☀️';};
 
 /* ---------- burger ---------- */
 const burger=document.getElementById('burger'),mnav=document.getElementById('mobileNav');
@@ -756,15 +747,6 @@ ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture&&ba.setPoin
 ba.addEventListener('pointermove',e=>{if(drag)setBA(e.clientX);});
 window.addEventListener('pointerup',()=>drag=false);
 window.addEventListener('pointercancel',()=>drag=false);
-/* клавиатурная доступность слайдера */
-ba.setAttribute('tabindex','0');ba.setAttribute('role','slider');ba.setAttribute('aria-label','Сравнение «до» и «после»');ba.setAttribute('aria-valuemin','0');ba.setAttribute('aria-valuemax','100');ba.setAttribute('aria-valuenow','50');
-ba.addEventListener('keydown',e=>{
-  let cur=parseFloat(baHandle.style.left)||50, step=e.shiftKey?10:4;
-  if(e.key==='ArrowLeft')cur=Math.max(2,cur-step);
-  else if(e.key==='ArrowRight')cur=Math.min(98,cur+step);
-  else if(e.key==='Home')cur=2; else if(e.key==='End')cur=98; else return;
-  e.preventDefault();baAfter.style.clipPath='inset(0 0 0 '+cur+'%)';baHandle.style.left=cur+'%';ba.setAttribute('aria-valuenow',Math.round(cur));
-});
 /* галерея пар «до/после» */
 let galleryPairs=[],gi=0;
 function renderPair(){
@@ -790,24 +772,7 @@ document.getElementById('baPrev').addEventListener('click',()=>{if(galleryPairs.
 document.getElementById('baNext').addEventListener('click',()=>{if(galleryPairs.length){gi=(gi+1)%galleryPairs.length;renderPair();}});
 
 /* ---------- form ---------- */
-function submitForm(e){
-  e.preventDefault();
-  var d=I18N[curLang], f=e.target, btn=f.querySelector('button[type=submit]');
-  if(!btn) return false;
-  var orig=btn.textContent;
-  var g=function(n){var el=f.elements[n];return el?(''+el.value):'';};
-  var payload={name:g('name'),phone:g('phone'),service:g('service'),page:location.href};
-  btn.disabled=true; btn.textContent=(d.bk_sending||'Отправка…');
-  var done=function(){
-    btn.disabled=false; btn.textContent=orig; f.reset();
-    var s=f.querySelector('.form-status');
-    if(!s){s=document.createElement('div');s.className='form-status';s.setAttribute('role','status');s.setAttribute('aria-live','polite');f.appendChild(s);}
-    s.textContent='✓ '+(d.bk_ok||'Заявка принята');
-    clearTimeout(s._t); s._t=setTimeout(function(){s.textContent='';},6000);
-  };
-  fetch('https://amg-lead.lolznubolz.workers.dev/',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(done,done);
-  return false;
-}
+function submitForm(e){e.preventDefault();const d=I18N[curLang];alert(d.bk_ok);e.target.reset();return false;}
 
 /* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
