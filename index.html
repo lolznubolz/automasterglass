@@ -772,7 +772,7 @@ document.getElementById('baPrev').addEventListener('click',()=>{if(galleryPairs.
 document.getElementById('baNext').addEventListener('click',()=>{if(galleryPairs.length){gi=(gi+1)%galleryPairs.length;renderPair();}});
 
 /* ---------- form ---------- */
-function submitForm(e){e.preventDefault();const d=I18N[curLang];alert(d.bk_ok);e.target.reset();return false;}
+function submitForm(e){e.preventDefault();var d=I18N[curLang];var f=e.target;var nm=f.querySelector('[name="name"]'),ph=f.querySelector('[name="phone"]');var name=(nm&&nm.value||'').trim(),phone=(ph&&ph.value||'').trim();if(!name||!phone){return false;}var btn=f.querySelector('[type="submit"]');if(btn){btn.disabled=true;}fetch('https://amg-lead.lolznubolz.workers.dev/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,phone:phone})}).then(function(r){return r.json().catch(function(){return{};}).then(function(j){return r.ok&&j&&j.ok;});}).then(function(ok){if(ok){alert(d.bk_ok);f.reset();}else{alert((d&&d.bk_err)||'Не удалось отправить заявку. Пожалуйста, позвоните нам.');}}).catch(function(){alert((d&&d.bk_err)||'Нет связи. Попробуйте ещё раз или позвоните нам.');}).then(function(){if(btn){btn.disabled=false;}});return false;}
 
 /* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
